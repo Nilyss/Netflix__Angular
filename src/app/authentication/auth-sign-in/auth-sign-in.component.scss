@@ -1,0 +1,22 @@
+.authLogin__fig {
+  width: 100%;
+  height: 100%;
+  &::after {
+    content:'';
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+.authLogin__fig__background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}

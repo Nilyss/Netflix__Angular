@@ -12,6 +12,6 @@ export class AuthHomeHeaderComponent {
   logo: string = '../../../../assets/images/logos/newNetflixLogo.png'
 
   goToSignIn() {
-    this.router.navigate(['/login'])
+    this.router.navigate(['fr-en/login'])
   }
 }
