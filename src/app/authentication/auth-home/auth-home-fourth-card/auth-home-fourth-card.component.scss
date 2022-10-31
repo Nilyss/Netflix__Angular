@@ -1,0 +1,64 @@
+@import '../../../../utils/styles/variables';
+
+.fourthCardWrapper {
+  background: #000000;
+  margin-top: .5em;
+}
+
+.fourthCardWrapper__card {
+  display: flex;
+  padding-bottom: 3em;
+}
+
+.fourthCardWrapper__card__leftSide {
+  width: 50%;
+}
+
+.fourthCardWrapper__card__leftSide__container {
+  color: $primaryFontColor;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  height: 100%;
+}
+
+.fourthCardWrapper__card__leftSide__container__title {
+  font-size: 2.7em;
+  width: 50%;
+}
+
+.fourthCardWrapper__card__leftSide__container__message {
+  font-size: 1.4em;
+  width: 50%;
+}
+
+.fourthCardWrapper__card__rightSide {
+  width: 50%;
+}
+
+.fourthCardWrapper__card__rightSide__container {
+  padding-top: 3em;
+}
+
+.fourthCardWrapper__card__rightSide__container__fig {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.fourthCardWrapper__card__rightSide__container__fig__img {
+  width: 55%;
+  position: relative;
+  z-index: 2;
+}
+
+.fourthCardWrapper__card__rightSide__container__fig__video {
+  position: absolute;
+  top: 9.7%;
+  left: 10%;
+  z-index: 1;
+  width: 35%;
+}

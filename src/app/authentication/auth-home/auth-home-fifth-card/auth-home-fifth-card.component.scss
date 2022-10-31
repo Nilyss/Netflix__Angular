@@ -1,0 +1,52 @@
+@import '../../../../utils/styles/variables';
+
+.fifthCardWrapper {
+  background: #000000;
+  margin-top: 0.5em;
+}
+
+.fifthCardWrapper__card {
+  display: flex;
+  padding-bottom: 3em;
+}
+
+.fifthCardWrapper__card__leftSide {
+  width: 50%;
+}
+
+.fifthCardWrapper__card__leftSide__container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4em;
+}
+
+.fifthCardWrapper__card__leftSide__container__fig {
+}
+
+.fifthCardWrapper__card__leftSide__container__fig__img {
+  width: 80%;
+}
+
+.fifthCardWrapper__card__rightSide {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fifthCardWrapper__card__rightSide__container {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  color: $primaryFontColor;
+}
+
+.fifthCardWrapper__card__rightSide__container__title {
+  font-size: 2.7em;
+  width: 55%;
+}
+
+.fifthCardWrapper__card__rightSide__container__message {
+  font-size: 1.4em;
+  width: 48%;
+}

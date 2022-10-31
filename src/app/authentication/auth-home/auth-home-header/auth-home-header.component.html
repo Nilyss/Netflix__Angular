@@ -1,0 +1,19 @@
+<header class="authHeader">
+  <figure class="authHeader__fig">
+    <img class="authHeader__fig__img" src="{{ logo }}" alt="netflix logo" />
+  </figure>
+  <nav class="authHeader__nav">
+    <button
+      class="authHeader__nav__button authHeader__nav__button--selectLanguage"
+    >
+      <span class="material-symbols-outlined languageIcon"> language </span>
+      English
+      <span class="material-symbols-outlined arrowDropDownIcon">arrow_drop_down</span>
+    </button>
+    <button
+      (click)='goToSignIn()'
+      class="authHeader__nav__button authHeader__nav__button--signIn">
+      Sign In
+    </button>
+  </nav>
+</header>

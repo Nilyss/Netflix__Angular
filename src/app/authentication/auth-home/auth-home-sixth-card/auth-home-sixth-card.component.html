@@ -1,0 +1,51 @@
+<div class="sixthCardWrapper">
+  <div class="sixthCardWrapper__card">
+    <h2 class="sixthCardWrapper__card__title">Frequently Asked Questions</h2>
+    <nav class="sixthCardWrapper__card__nav">
+      <ul class="sixthCardWrapper__card__nav__ul">
+        <li
+          *ngFor="let question of Questions"
+          class="sixthCardWrapper__card__nav__ul__li"
+        >
+          <p
+            (click)="setDisplay(question.id)"
+            class="sixthCardWrapper__card__nav__ul__li__subtitle"
+          >
+            <span class="sixthCardWrapper__card__nav__ul__li__subtitle__text">
+              {{question.question}} </span
+            ><span
+            *ngIf="!isDisplay[question.id]"
+            [ngClass]="{
+                'sixthCardWrapper__card__nav__ul__li__subtile__toggleOpen material-symbols-outlined':
+                  !isDisplay[question.id]
+              }"
+          >
+              add
+            </span>
+            <span
+              *ngIf="isDisplay[question.id]"
+              [ngClass]="{
+                'sixthCardWrapper__card__nav__ul__li__subtile__toggleClose material-symbols-outlined':
+                  isDisplay[question.id]
+              }"
+            >
+              close
+            </span>
+          </p>
+          <div
+            [ngClass]="{
+              'sixthCardWrapper__card__nav__ul__li__description--open':
+                isDisplay[question.id],
+              'sixthCardWrapper__card__nav__ul__li__description--closed':
+                !isDisplay[question.id]
+            }"
+          >
+            <p
+              class="sixthCardWrapper__card__nav__ul__li__description__message"
+            >{{question.answer}}</p>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

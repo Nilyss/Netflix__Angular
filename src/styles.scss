@@ -1,0 +1,21 @@
+/* GLOBAL SCSS FILE */
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('../../Netflix__Angular/src/assets/font/netflix-sans/NetflixSans-Regular.woff2')
+    format('woff');
+  src: url('../../Netflix__Angular/src/assets/font/netflix-sans/NetflixSans-Regular.otf')
+    format('truetype');
+}
+
+// reset css
+
+html,
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Netflix Sans', sans-serif;
+}

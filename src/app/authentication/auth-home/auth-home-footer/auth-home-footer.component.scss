@@ -1,0 +1,66 @@
+@import '../../../../utils/styles/variables';
+
+.authFooter {
+  color: $tertiaryFontColor;
+  background: #000000;
+  margin-top: 0.5em;
+  padding-top: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authFooter__wrapper {
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+}
+
+.authFooter__wrapper__phone {
+  margin: 2em 0 2em 0;
+}
+
+.authFooter__wrapper__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.authFooter__wrapper__nav__ul {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  font-size: 0.7em;
+}
+
+.authFooter__wrapper__nav__ul__li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.authFooter__wrapper__language {
+  margin: 2em 0 1em 0;
+  width: fit-content;
+  background: rgba(0, 0, 0, 0);
+  color: $tertiaryFontColor;
+  border: 1px solid $tertiaryFontColor;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  padding: .7em;
+  cursor: pointer;
+}
+
+.languageIconFooter {
+  font-size: 1.5em;
+}
+
+.arrowDropDownIconFooter {
+  font-size: 2.2em;
+}
+
+.authFooter__wrapper__company {
+  color: $tertiaryFontColor;
+  font-size: 0.7em;
+  margin-bottom: 2em;
+}

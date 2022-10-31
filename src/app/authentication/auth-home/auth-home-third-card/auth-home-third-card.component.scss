@@ -1,0 +1,82 @@
+@import '../../../../utils/styles/variables';
+
+.thirdCardWrapper {
+  background: #000000;
+  margin-top: .5em;
+}
+
+.thirdCardWrapper__card {
+  color: $primaryFontColor;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3em;
+}
+
+.thirdCardWrapper__card__left {
+  width: 50%;
+  display: flex;
+}
+
+.thirdCardWrapper__card__left__fig {
+  min-width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.thirdCardWrapper__card__left__fig__img {
+  width: 30em;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard {
+  width: 34%;
+  display: flex;
+  flex-flow: wrap;
+  position: absolute;
+  z-index: 2;
+  top: 65%;
+  left: 33%;
+  background: #000000;
+  height: fit-content;
+  border: 2px solid $tertiaryColor;
+  border-radius: 10px;
+  padding: .7em;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__fig__img {
+  width: 4em;
+  margin-right: 1em;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__text {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__text__title {
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__text__title__message {
+  color: $linkFontColor;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__text__title__animation {}
+
+.thirdCardWrapper__card__right {
+  width: 50%;
+}
+
+.thirdCardWrapper__card__right__title {
+  font-size: 2.7em;
+  width: 50%;
+}
+
+.thirdCardWrapper__card__right__message {
+  font-size: 1.4em;
+  width: 45%;
+}

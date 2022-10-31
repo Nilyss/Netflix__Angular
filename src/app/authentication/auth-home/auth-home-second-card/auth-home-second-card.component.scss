@@ -1,0 +1,60 @@
+@import '../../../../utils/styles/variables';
+
+.secondCardWrapper {
+  width: 100%;
+  margin-top: .5em;
+  background: #000000;
+}
+
+.secondCardWrapper__card {
+  color: $primaryFontColor;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3em;
+}
+
+.secondCardWrapper__card__leftPart {
+  width: 50%;
+  padding-left: 4em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.secondCardWrapper__card__leftPart__title {
+  font-size: 2.7em;
+  width: 55%;
+}
+
+.secondCardWrapper__card__leftPart__message {
+  font-size: 1.4em;
+  width: 55%;
+}
+
+.secondCardWrapper__card__rightPart {
+  width: 50%;
+  display: flex;
+  overflow: hidden;
+}
+
+.secondCardWrapper__card__rightPart__fig {
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.secondCardWrapper__card__rightPart__fig__img {
+  z-index: 1;
+  width: 50%;
+  object-fit: cover;
+}
+
+.secondCardWrapper__card__rightPart__fig__video {
+  width: 40%;
+  position: absolute;
+  top: 20.7%;
+  left: 6.6%;
+  z-index: 0;
+}

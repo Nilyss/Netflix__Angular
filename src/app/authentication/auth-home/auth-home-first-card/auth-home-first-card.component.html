@@ -1,0 +1,34 @@
+<div class="firstCardWrapper">
+  <div class="firstCardWrapper__card">
+    <h1 class="firstCardWrapper__card__title">
+      Unlimited movies, TV show, and more.
+    </h1>
+    <p class="firstCardWrapper__card__subtitle">
+      Watch anywhere. Cancel anytime.
+    </p>
+    <p class="firstCardWrapper__card__message">
+      Ready to watch? Enter your email to create or restart your membership.
+    </p>
+    <div class="firstCardWrapper__card__inputWrapper">
+      <label
+        [ngClass]="{
+          firstCardWrapper__card__inputWrapper__label: email.length === 0,
+          'firstCardWrapper__card__inputWrapper__label--active':
+            email.length >= 1
+        }"
+        for="emailInput"
+        >Email address</label
+      >
+      <input
+        [(ngModel)]="email"
+        name="emailInput"
+        id="emailInput"
+        class="firstCardWrapper__card__inputWrapper__input"
+        type="email"
+      />
+      <button class="firstCardWrapper__card__inputWrapper__submit">
+        Get Started
+      </button>
+    </div>
+  </div>
+</div>

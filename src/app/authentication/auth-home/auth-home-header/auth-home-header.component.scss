@@ -1,0 +1,57 @@
+@import '../../../../utils/styles/variables';
+
+.authHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5em 3.5em 0 3.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.authHeader__fig {
+  object-fit: cover;
+}
+
+.authHeader__fig__img {
+  width: 175px;
+  cursor: pointer;
+}
+
+.authHeader__nav {
+  display: flex;
+  gap: 2em;
+}
+
+.authHeader__nav__button {
+  height: 2.3em;
+  color: $primaryFontColor;
+  border-radius: 3px;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.authHeader__nav__button--selectLanguage {
+  background: rgba(229, 9, 20, 0);
+  border: 1px solid $primaryFontColor;
+  padding: 0.2em 0.2em;
+  font-size: 1em;
+}
+
+.languageIcon {
+  font-size: 1em;
+}
+
+.arrowDropDownIcon {
+  font-size: 1.8em;
+}
+
+.authHeader__nav__button--signIn {
+  background: $primaryColor;
+  border: none;
+  padding: 1em 1em;
+  cursor: pointer;
+}
