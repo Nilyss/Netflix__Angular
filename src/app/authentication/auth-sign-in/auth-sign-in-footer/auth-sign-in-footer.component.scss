@@ -1,0 +1,52 @@
+@import '../../../../utils/styles/variables';
+
+.authLogin__footer {
+  color: $tertiaryFontColor;
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: 5em;
+  padding-top: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authLogin__footer__wrapper {
+  width: 55%;
+  margin-bottom: 3em;
+}
+
+.authLogin__footer__wrapper__phone {
+  font-size: 1em;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+
+.authLogin__footer__wrapper__nav {
+  display: flex;
+  gap: 10em;
+}
+
+.authLogin__footer__wrapper__nav__ul {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.authLogin__footer__wrapper__nav__ul__li {
+  list-style: none;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.authLogin__footer__wrapper__language {
+  margin: 2.5em 0 1em 0;
+  width: fit-content;
+  background: #000000;
+  color: $tertiaryFontColor;
+  border: 1px solid $tertiaryFontColor;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  padding: .7em;
+  cursor: pointer;
+}

@@ -1,0 +1,90 @@
+<div class="authSignIn">
+  <div class="authSignIn__wrapper">
+    <h1 class="authSignIn__wrapper__title">Sign In</h1>
+    <form #loginForm="ngForm" class="authSignIn__wrapper__form">
+      <div class="authSignIn__wrapper__form__email">
+        <input
+          class="authSignIn__wrapper__form__email__input authSignIn--input"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          required
+        />
+        <label
+          for="email"
+          class="authSignIn__wrapper__form__email__label"
+          [ngClass]="{
+            'authSignIn__wrapper__form__email__label--active': email.length >= 1
+          }"
+          >Email or phone number</label
+        >
+        <p
+          class="authSignIn__wrapper__form__errorInput"
+          *ngIf="email.length === 0"
+        >
+          {{ errorMail }}
+        </p>
+      </div>
+      <div class="authSignIn__wrapper__form__password">
+        <input
+          class="authSignIn__wrapper__form__password__input authSignIn--input"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          required
+        />
+        <label
+          for="password"
+          class='authSignIn__wrapper__form__password__label'
+          [ngClass]="{
+            'authSignIn__wrapper__form__password__label--active':
+              password.length >= 1
+          }"
+        >Password</label
+        >
+        <p
+          class="authSignIn__wrapper__form__errorInput"
+          *ngIf="password.length === 0"
+        >
+          {{ errorPassword }}
+        </p>
+      </div>
+      <div class="authSignIn__wrapper__submit">
+        <button (click)="login()" class="authSignIn__wrapper__submit__button">
+          Sign In
+        </button>
+      </div>
+    </form>
+    <div class="authSignIn__wrapper__remember">
+      <div class="authSignIn__wrapper__remember__checkboxWrapper">
+        <input
+          class="authSignIn__wrapper__remember__checkboxWrapper__checkbox"
+          type="checkbox"
+          checked
+        />
+        <label class="authSignIn__wrapper__remember__checkboxWrapper__label"
+          >Remember me</label
+        >
+      </div>
+      <div class="authSignIn__wrapper__remember__checkboxWrapper__helpWrapper">
+        <p
+          class="authSignIn__wrapper__remember__checkboxWrapper__helpWrapper__link"
+        >
+          Need help?
+        </p>
+      </div>
+    </div>
+    <div class="authSignIn__wrapper__newOnNetflix">
+      <p class="authSignIn__wrapper__newOnNetflix__message">New to Netflix ?</p>
+      <p class="authSignIn__wrapper__newOnNetflix__link">Sign up now.</p>
+    </div>
+    <div class="authSignIn__wrapper__captcha">
+      <p class="authSignIn__wrapper__captcha__message">
+        This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        <span class="authSignIn__wrapper__captcha__link">Learn more.</span>
+      </p>
+    </div>
+  </div>
+</div>

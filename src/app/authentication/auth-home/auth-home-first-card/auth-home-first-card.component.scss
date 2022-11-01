@@ -4,7 +4,7 @@
   width: 100%;
   height: 76vh;
   background: url('../../../../assets/images/authentication/home/authBackground.jpg')
-  no-repeat center;
+    no-repeat center;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -44,7 +44,7 @@
 
 .firstCardWrapper__card__message {
   font-size: 1.2em;
-  margin-bottom: -.2em;
+  margin-bottom: -0.2em;
 }
 
 .firstCardWrapper__card__inputWrapper {
@@ -76,12 +76,22 @@
   transform: translateY(0);
 }
 
-  .firstCardWrapper__card__inputWrapper__input {
+.firstCardWrapper__card__inputWrapper__input {
   width: 27em;
   height: 100%;
   font-size: 1.1em;
-  padding: .5em;
+  padding: 0.5em;
+  display: flex;
   &:focus {
+    & + .firstCardWrapper__card__inputWrapper__label {
+      transition: all 100ms ease-out;
+      font-size: 0.7em;
+      color: #888888;
+      padding-left: 1.5em;
+      position: absolute;
+      top: 8%;
+      transform: translateY(0);
+    }
     outline: none;
   }
 }

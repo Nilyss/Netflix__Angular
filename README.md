@@ -6,7 +6,7 @@
 
 * Open a shell
 * Download front-end required dependencies with `npm install`
-* Start the Application with `npm run start` command
+* Start the Application with `ng serve` command
 * Open a web browser and search for localhost:4200/
 
 

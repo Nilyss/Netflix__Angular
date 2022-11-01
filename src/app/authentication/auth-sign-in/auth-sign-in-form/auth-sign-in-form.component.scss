@@ -1,0 +1,198 @@
+@import '../../../../utils/styles/variables';
+
+.authSignIn {
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.authSignIn__wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4em;
+  color: $primaryFontColor;
+  width: 450px;
+}
+
+.authSignIn__wrapper__title {
+  font-size: 2em;
+}
+
+.authSignIn__wrapper__form {
+  margin-top: 2em;
+  display: flex;
+  flex-flow: column;
+  gap: 2em;
+}
+
+.authSignIn__wrapper__form__email {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.authSignIn__wrapper__form__email__label {
+  transition: all 100ms ease-out;
+  font-size: 1em;
+  color: $secondaryFontColor;
+  padding-left: 1em;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.authSignIn__wrapper__form__email__label--active {
+  transition: all 100ms ease-out;
+  font-size: 0.7em;
+  color: $secondaryFontColor;
+  padding-left: 1.5em;
+  position: absolute;
+  top: 8%;
+  transform: translateY(0);
+}
+
+.authSignIn__wrapper__form__email__input {
+  width: 100%;
+  display: flex;
+  &:focus {
+    & + .authSignIn__wrapper__form__email__label {
+      transition: all 100ms ease-out;
+      font-size: 0.7em;
+      color: $secondaryFontColor;
+      padding-left: 1.5em;
+      position: absolute;
+      top: 8%;
+      transform: translateY(0);
+    }
+  }
+}
+
+.authSignIn__wrapper__form__password {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.authSignIn__wrapper__form__password__label {
+  transition: all 100ms ease-out;
+  font-size: 1em;
+  color: $secondaryFontColor;
+  padding-left: 1em;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.authSignIn__wrapper__form__password__label--active {
+  transition: all 100ms ease-out;
+  font-size: 0.7em;
+  color: $secondaryFontColor;
+  padding-left: 1.5em;
+  position: absolute;
+  top: 8%;
+  transform: translateY(0);
+}
+
+.authSignIn__wrapper__form__password__input {
+  width: 100%;
+  display: flex;
+  &:focus {
+    & + .authSignIn__wrapper__form__password__label {
+      transition: all 100ms ease-out;
+      font-size: 0.7em;
+      color: $secondaryFontColor;
+      padding-left: 1.5em;
+      position: absolute;
+      top: 8%;
+      transform: translateY(0);
+    }
+  }
+}
+
+.authSignIn--input {
+  padding: 1.5em 1em .5em 1em;
+  background: $primaryBackgroundColor;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  color: $primaryFontColor;
+  font-size: 1em;
+}
+
+.authSignIn__wrapper__submit {
+}
+
+.authSignIn__wrapper__submit__button {
+  display: flex;
+  flex-flow: column;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 1em;
+  background: $primaryColor;
+  width: 100%;
+  border: none;
+  color: $primaryFontColor;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.authSignIn__wrapper__remember {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  color: $quaternaryFontColor;
+  font-size: 0.9em;
+}
+
+.authSignIn__wrapper__remember__checkboxWrapper {
+}
+
+.authSignIn__wrapper__remember__checkboxWrapper__checkbox {
+  accent-color: $tertiaryFontColor;
+  margin-right: 0.3em;
+}
+
+.authSignIn__wrapper__newOnNetflix {
+  display: flex;
+  margin-top: 5em;
+  color: $tertiaryFontColor;
+}
+
+.authSignIn__wrapper__remember__checkboxWrapper__helpWrapper__link {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.authSignIn__wrapper__newOnNetflix__link {
+  color: $primaryFontColor;
+  margin-left: 0.3em;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.authSignIn__wrapper__captcha {
+  margin-top: 1em;
+  font-size: 0.85em;
+  display: flex;
+  color: $tertiaryFontColor;
+  margin-bottom: 5em;
+}
+
+.authSignIn__wrapper__captcha__link {
+  color: $linkFontColor;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.authSignIn__wrapper__form__errorInput {
+  color: $errorFontColor;
+}
