@@ -15,6 +15,7 @@ import { Component } from '@angular/core'
       <main>
         <app-auth-sign-in-form></app-auth-sign-in-form>
       </main>
+      <app-auth-sign-in-footer></app-auth-sign-in-footer>
     </body>
   `,
   styleUrls: ['auth-sign-in.component.scss'],

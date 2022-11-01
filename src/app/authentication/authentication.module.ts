@@ -17,7 +17,8 @@ import { AuthHomeFooterComponent } from './auth-home/auth-home-footer/auth-home-
 // auth Sign-in Components
 import { AuthSignInComponent } from './auth-sign-in/auth-sign-in.component';
 import { AuthSignInHeaderComponent } from './auth-sign-in/auth-sign-in-header/auth-sign-in-header.component';
-import { AuthSignInFormComponent } from './auth-sign-in/auth-sign-in-form/auth-sign-in-form.component'
+import { AuthSignInFormComponent } from './auth-sign-in/auth-sign-in-form/auth-sign-in-form.component';
+import { AuthSignInFooterComponent } from './auth-sign-in/auth-sign-in-footer/auth-sign-in-footer.component'
 
 const authRoutes: Routes = [
   { path: 'fr-en', component: AuthHomeComponent },
@@ -39,6 +40,7 @@ const authRoutes: Routes = [
     AuthSignInComponent,
     AuthSignInHeaderComponent,
     AuthSignInFormComponent,
+    AuthSignInFooterComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule.forChild(authRoutes)],
   exports: [AuthHomeComponent],

@@ -10,7 +10,7 @@
 }
 
 .authSignIn__wrapper {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   padding: 4em;
   color: $primaryFontColor;
   width: 80%;
@@ -182,6 +182,7 @@
   font-size: 0.85em;
   display: flex;
   color: $tertiaryFontColor;
+  margin-bottom: 5em;
 }
 
 .authSignIn__wrapper__captcha__link {
