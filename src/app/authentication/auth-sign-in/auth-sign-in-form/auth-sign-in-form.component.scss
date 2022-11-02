@@ -10,6 +10,10 @@
 }
 
 .authSignIn__wrapper {
+  @media (max-width: $mobileBreakpoint) {
+    width: fit-content;
+    padding: 1.5em;
+  }
   background: rgba(0, 0, 0, 0.7);
   padding: 4em;
   color: $primaryFontColor;

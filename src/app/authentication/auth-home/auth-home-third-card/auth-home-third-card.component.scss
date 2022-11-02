@@ -2,10 +2,13 @@
 
 .thirdCardWrapper {
   background: #000000;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .thirdCardWrapper__card {
+  @media (max-width: $tabletBreakpoint) {
+    flex-flow: column;
+  }
   color: $primaryFontColor;
   display: flex;
   align-items: center;
@@ -13,12 +16,17 @@
 }
 
 .thirdCardWrapper__card__left {
+  @media (max-width: $tabletBreakpoint) {
+    order: 2;
+    width: fit-content;
+  }
   width: 50%;
   display: flex;
+  justify-content: center;
 }
 
 .thirdCardWrapper__card__left__fig {
-  min-width: 100%;
+  width: 500px;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -28,55 +36,90 @@
 }
 
 .thirdCardWrapper__card__left__fig__img {
-  width: 30em;
+  width: 100%;
 }
 
 .thirdCardWrapper__card__left__fig__downloadCard {
-  width: 34%;
+  width: 320px;
   display: flex;
-  flex-flow: wrap;
+  flex-flow: nowrap;
   position: absolute;
   z-index: 2;
-  top: 65%;
-  left: 33%;
+  top: 64%;
   background: #000000;
-  height: fit-content;
   border: 2px solid $tertiaryColor;
   border-radius: 10px;
-  padding: .7em;
+  padding: .5em 0 .5em .5em;
 }
 
 .thirdCardWrapper__card__left__fig__downloadCard__fig__img {
-  width: 4em;
+  width: 3.5em;
   margin-right: 1em;
 }
 
 .thirdCardWrapper__card__left__fig__downloadCard__text {
+  width: 100%;
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .thirdCardWrapper__card__left__fig__downloadCard__text__title {
+  font-size: 1em;
 }
 
 .thirdCardWrapper__card__left__fig__downloadCard__text__title__message {
+  font-size: .9em;
   color: $linkFontColor;
 }
 
-.thirdCardWrapper__card__left__fig__downloadCard__text__title__animation {}
+.thirdCardWrapper__card__left__fig__downloadCard__animation {
+  margin-right: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.thirdCardWrapper__card__left__fig__downloadCard__animation__gif {
+  width: 50px;
+  height: 50px;
+}
 
 .thirdCardWrapper__card__right {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    gap: 1em;
+  }
   width: 50%;
 }
 
 .thirdCardWrapper__card__right__title {
+  @media (max-width: $laptopBreakpoint) {
+    width: 90%;
+  }
+  @media (max-width: $tabletBreakpoint) {
+    text-align: center;
+    margin-top: 1.5em;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.5em;
+  }
   font-size: 2.7em;
   width: 50%;
 }
 
 .thirdCardWrapper__card__right__message {
+  @media (max-width: $laptopBreakpoint) {
+    width: 90%;
+  }
+  @media (max-width: $tabletBreakpoint) {
+    text-align: center;
+    font-size: 1.2em;
+  }
   font-size: 1.4em;
   width: 45%;
 }

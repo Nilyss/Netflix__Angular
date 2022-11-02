@@ -30,7 +30,7 @@ import { Component, OnInit } from '@angular/core'
       <app-auth-home-footer></app-auth-home-footer>
     </body>
   `,
-  styles: ['.authBody {background: #222222}'],
+  styles: ['.authBody {background: #222222; overflow: hidden}'],
 })
 export class AuthHomeComponent implements OnInit {
   constructor() {}

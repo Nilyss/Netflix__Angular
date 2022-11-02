@@ -6,11 +6,18 @@
 }
 
 .fourthCardWrapper__card {
+  @media (max-width: $tabletBreakpoint) {
+    flex-flow: column;
+  }
   display: flex;
   padding-bottom: 3em;
 }
 
 .fourthCardWrapper__card__leftSide {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    text-align: center;
+  }
   width: 50%;
 }
 
@@ -25,16 +32,34 @@
 }
 
 .fourthCardWrapper__card__leftSide__container__title {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    margin-top: 1.5em;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    width: 90%;
+    font-size: 1.5em;
+  }
   font-size: 2.7em;
   width: 50%;
 }
 
 .fourthCardWrapper__card__leftSide__container__message {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    font-size: 1.2em;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    width: 90%;
+  }
   font-size: 1.4em;
   width: 50%;
 }
 
 .fourthCardWrapper__card__rightSide {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+  }
   width: 50%;
 }
 
@@ -43,6 +68,8 @@
 }
 
 .fourthCardWrapper__card__rightSide__container__fig {
+  display: flex;
+  justify-content: center;
   position: relative;
   top: 0;
   left: 0;
@@ -50,15 +77,20 @@
 }
 
 .fourthCardWrapper__card__rightSide__container__fig__img {
-  width: 55%;
+  @media (max-width: $mobileBreakpoint) {
+    width: 400px;
+  }
+  width: 550px;
   position: relative;
   z-index: 2;
 }
 
 .fourthCardWrapper__card__rightSide__container__fig__video {
+  @media (max-width: $mobileBreakpoint) {
+    width: 250px;
+  }
   position: absolute;
   top: 9.7%;
-  left: 10%;
   z-index: 1;
-  width: 35%;
+  width: 350px;
 }

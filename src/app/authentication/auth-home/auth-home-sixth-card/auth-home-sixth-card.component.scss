@@ -15,11 +15,20 @@
 }
 
 .sixthCardWrapper__card__title {
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.5em;
+  }
   font-size: 2.7em;
   margin-bottom: 2em;
 }
 
 .sixthCardWrapper__card__nav {
+  @media (max-width: $tabletBreakpoint) {
+    width: 80%;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
   width: 40%;
 }
 
@@ -30,6 +39,9 @@
 }
 
 .sixthCardWrapper__card__nav__ul__li {
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.1em;
+  }
   display: flex;
   flex-flow: column;
   justify-content: space-between;

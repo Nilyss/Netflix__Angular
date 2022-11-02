@@ -6,28 +6,56 @@
 }
 
 .fifthCardWrapper__card {
+  @media (max-width: $tabletBreakpoint) {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
   display: flex;
   padding-bottom: 3em;
 }
 
 .fifthCardWrapper__card__leftSide {
+  @media (max-width: $tabletBreakpoint) {
+    order: 2;
+    width: 100%;
+  }
   width: 50%;
 }
 
 .fifthCardWrapper__card__leftSide__container {
+  @media (max-width: $tabletBreakpoint) {
+    justify-content: center;
+  }
   display: flex;
   justify-content: flex-end;
   padding-top: 4em;
 }
 
 .fifthCardWrapper__card__leftSide__container__fig {
+  @media (max-width: $tabletBreakpoint) {
+    width: unset;
+  }
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fifthCardWrapper__card__leftSide__container__fig__img {
-  width: 80%;
+  @media (max-width: $laptopBreakpoint) {
+    width: 80%;
+  }
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+  }
 }
 
 .fifthCardWrapper__card__rightSide {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+  }
   width: 50%;
   display: flex;
   align-items: center;
@@ -35,6 +63,10 @@
 }
 
 .fifthCardWrapper__card__rightSide__container {
+  @media (max-width: $laptopBreakpoint) {
+    align-items: center;
+    text-align: center;
+  }
   display: flex;
   flex-flow: column;
   gap: 1em;
@@ -42,11 +74,26 @@
 }
 
 .fifthCardWrapper__card__rightSide__container__title {
+  @media (max-width: $laptopBreakpoint) {
+    width: 90%;
+  }
+  @media (max-width: $tabletBreakpoint) {
+    margin-top: 1.5em;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.5em;
+  }
   font-size: 2.7em;
   width: 55%;
 }
 
 .fifthCardWrapper__card__rightSide__container__message {
+  @media (max-width: $laptopBreakpoint) {
+    width: 90%;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.2em;
+  }
   font-size: 1.4em;
   width: 48%;
 }

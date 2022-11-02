@@ -2,11 +2,14 @@
 
 .secondCardWrapper {
   width: 100%;
-  margin-top: .5em;
+  margin-top: 0.5em;
   background: #000000;
 }
 
 .secondCardWrapper__card {
+  @media (max-width: $tabletBreakpoint) {
+    flex-flow: column;
+  }
   color: $primaryFontColor;
   display: flex;
   align-items: center;
@@ -14,6 +17,13 @@
 }
 
 .secondCardWrapper__card__leftPart {
+  @media (max-width: $laptopBreakpoint) {
+    margin-top: 4em;
+  }
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    padding-left: unset;
+  }
   width: 50%;
   padding-left: 4em;
   display: flex;
@@ -22,22 +32,46 @@
 }
 
 .secondCardWrapper__card__leftPart__title {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1.5em;
+  }
   font-size: 2.7em;
-  width: 55%;
+  width: 500px;
 }
 
 .secondCardWrapper__card__leftPart__message {
+  @media (max-width: $tabletBreakpoint) {
+    width: 90%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 1em;
+  }
   font-size: 1.4em;
-  width: 55%;
+  width: 500px;
 }
 
 .secondCardWrapper__card__rightPart {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+  }
   width: 50%;
   display: flex;
   overflow: hidden;
 }
 
 .secondCardWrapper__card__rightPart__fig {
+  @media (max-width: $tabletBreakpoint) {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
   width: 100%;
   display: flex;
   position: relative;
@@ -46,15 +80,30 @@
 }
 
 .secondCardWrapper__card__rightPart__fig__img {
+  @media (max-width: $tabletBreakpoint) {
+    left: 17%;
+    width: 60%;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    width: 90%;
+  }
   z-index: 1;
-  width: 50%;
+  width: 500px;
   object-fit: cover;
 }
 
 .secondCardWrapper__card__rightPart__fig__video {
-  width: 40%;
+  @media (max-width: $tabletBreakpoint) {
+    left: 27.9%;
+    width: 50%;
+  }
+  @media (max-width: $mobileBreakpoint) {
+    left: 17%;
+    width: 70%;
+  }
+  width: 400px;
   position: absolute;
   top: 20.7%;
-  left: 6.6%;
+  left: 66px;
   z-index: 0;
 }
