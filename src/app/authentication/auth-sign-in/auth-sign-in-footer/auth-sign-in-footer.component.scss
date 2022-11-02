@@ -1,6 +1,11 @@
 @import '../../../../utils/styles/variables';
 
 .authLogin__footer {
+  @media(max-width: $mobileBreakpoint) {
+    justify-content: flex-start;
+    padding-left: 1.5em;
+    border-top: .1em solid $quaternaryFontColor;
+  }
   color: $tertiaryFontColor;
   background: rgba(0, 0, 0, 0.7);
   margin-top: 5em;
@@ -11,6 +16,9 @@
 }
 
 .authLogin__footer__wrapper {
+  @media(max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
   width: 55%;
   margin-bottom: 3em;
 }
@@ -22,17 +30,31 @@
 }
 
 .authLogin__footer__wrapper__nav {
+  @media(max-width: $mobileBreakpoint) {
+    gap: unset;
+    flex-flow: wrap;
+    white-space: nowrap;
+    width: 75%;
+  }
   display: flex;
   gap: 10em;
 }
 
 .authLogin__footer__wrapper__nav__ul {
+  @media(max-width: $mobileBreakpoint) {
+    gap: unset;
+    display: flex;
+    width: 50%;
+  }
   display: flex;
   flex-flow: column;
   gap: 1em;
 }
 
 .authLogin__footer__wrapper__nav__ul__li {
+  @media (max-width: $mobileBreakpoint) {
+    margin-bottom: 1em;
+  }
   list-style: none;
   font-size: 0.8em;
   cursor: pointer;

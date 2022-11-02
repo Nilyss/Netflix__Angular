@@ -1,4 +1,9 @@
+@import '../../../../utils/styles/variables';
+
 .authLogin__header__fig {
+  @media (max-width: $mobileBreakpoint) {
+    padding: 1em;
+  }
   object-fit: cover;
   padding: 1.2em 2.3em 1.2em 2.3em;
 

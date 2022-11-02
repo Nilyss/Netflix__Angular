@@ -6,14 +6,16 @@
   margin-top: 0.5em;
   padding-top: 3em;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .authFooter__wrapper {
-  width: 50%;
+  @media (max-width: $tabletBreakpoint) {
+    align-items: flex-start;
+  }
   display: flex;
   flex-flow: column;
+  justify-content: center;
 }
 
 .authFooter__wrapper__phone {
@@ -21,12 +23,25 @@
 }
 
 .authFooter__wrapper__nav {
+  @media (max-width: $tabletBreakpoint) {
+    flex-flow: wrap;
+    gap: unset;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+  }
   display: flex;
-  justify-content: space-between;
-  width: 75%;
+  gap: 8em;
+  width: 100%;
 }
 
 .authFooter__wrapper__nav__ul {
+  @media (max-width: $tabletBreakpoint) {
+    width: 50%;
+    text-align: left;
+    justify-content: center;
+    margin-top: 2em;
+  }
   display: flex;
   flex-flow: column;
   gap: 1em;
@@ -34,11 +49,17 @@
 }
 
 .authFooter__wrapper__nav__ul__li {
+  @media (max-width: $tabletBreakpoint) {
+    margin-top: 0.8em;
+  }
   list-style: none;
   cursor: pointer;
 }
 
 .authFooter__wrapper__language {
+  @media (max-width: $tabletBreakpoint) {
+    align-self: flex-start;
+  }
   margin: 2em 0 1em 0;
   width: fit-content;
   background: rgba(0, 0, 0, 0);
@@ -46,8 +67,8 @@
   border: 1px solid $tertiaryFontColor;
   display: flex;
   align-items: center;
-  gap: .5em;
-  padding: .7em;
+  gap: 0.5em;
+  padding: 0.7em;
   cursor: pointer;
 }
 
@@ -60,6 +81,9 @@
 }
 
 .authFooter__wrapper__company {
+  @media (max-width: $tabletBreakpoint) {
+    align-self: flex-start;
+  }
   color: $tertiaryFontColor;
   font-size: 0.7em;
   margin-bottom: 2em;
