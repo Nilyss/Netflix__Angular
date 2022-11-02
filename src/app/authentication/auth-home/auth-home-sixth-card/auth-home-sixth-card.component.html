@@ -47,5 +47,29 @@
         </li>
       </ul>
     </nav>
+    <p class="sixthCardWrapper__card__message">
+      Ready to watch? Enter your email to create or restart your membership.
+    </p>
+    <div class='sixthCardWrapper__card__inputWrapper'>
+      <input
+        [(ngModel)]="email"
+        name="emailInput"
+        id="emailInput"
+        class="sixthCardWrapper__card__inputWrapper__input"
+        type="email"
+      />
+      <label
+        class='sixthCardWrapper__card__inputWrapper__label'
+        [ngClass]="{
+          'sixthCardWrapper__card__inputWrapper__label--active':
+            email.length >= 1
+        }"
+        for="emailInput"
+      >Email address</label
+      >
+      <button class="sixthCardWrapper__card__inputWrapper__submit">
+        Get Started
+      </button>
+    </div>
   </div>
 </div>

@@ -8,6 +8,8 @@ import { QUESTIONS } from '../mockup-questions'
   styleUrls: ['auth-home-sixth-card.component.scss'],
 })
 export class AuthHomeSixthCardComponent {
+  email: string = ''
+
   Questions: Question[] = QUESTIONS
 
   isDisplay = [true]
