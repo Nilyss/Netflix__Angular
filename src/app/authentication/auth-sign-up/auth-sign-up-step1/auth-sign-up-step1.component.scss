@@ -1,0 +1,172 @@
+@import '../../../../utils/styles/variables';
+
+.authSignUpStep1 {
+  display: flex;
+  justify-content: center;
+  padding: 3em 0 8em 0;
+}
+
+.authSignUpStep1__wrapper {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 450px;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+}
+
+.authSignUpStep1__wrapper__stepNumber {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.authSignUpStep1__wrapper__stepNumber--number {
+  font-weight: 700;
+}
+
+.authSignUpStep1__wrapper__title {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  font-weight: bold;
+  font-size: 32px;
+  width: 450px;
+  margin-bottom: 0.5em;
+}
+
+.authSignUpStep1__wrapper__message {
+  @media (max-width: $mobileBreakpoint) {
+    width: 200px;
+  }
+  font-size: 1em;
+  width: 300px;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.input {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 450px;
+  padding: 1.5em 1em 0.5em 1em;
+  background: #ffffff;
+  border: 1px solid $quaternaryFontColor;
+  outline: none;
+  color: #000000;
+  font-size: 1em;
+  margin-bottom: .5em;
+}
+
+.authSignUpStep1__wrapper__form__input__email {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.authSignUpStep1__wrapper__form__input__email__input {
+  width: 100%;
+  display: flex;
+  &:focus {
+    & + .authSignUpStep1__wrapper__form__input__email__label {
+      transition: all 100ms ease-out;
+      font-size: 0.8em;
+      color: $secondaryFontColor;
+      padding-left: 1.5em;
+      position: absolute;
+      top: 8%;
+      transform: translateY(0);
+    }
+  }
+}
+
+.authSignUpStep1__wrapper__form__input__password {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.authSignUpStep1__wrapper__form__input__password__input {
+  width: 100%;
+  display: flex;
+  &:focus {
+    & + .authSignUpStep1__wrapper__form__input__password__label {
+      transition: all 100ms ease-out;
+      font-size: 0.8em;
+      color: $secondaryFontColor;
+      padding-left: 1.5em;
+      position: absolute;
+      top: 8%;
+      transform: translateY(0);
+    }
+  }
+}
+
+.authSignUpStep1__wrapper__form__input__email__label {
+  transition: all 100ms ease-out;
+  font-size: 1em;
+  color: $secondaryFontColor;
+  padding-left: 1em;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.authSignUpStep1__wrapper__form__input__email__label--active {
+  transition: all 100ms ease-out;
+  font-size: 0.8em;
+  color: $secondaryFontColor;
+  padding-left: 1.5em;
+  position: absolute;
+  top: 8%;
+  transform: translateY(0);
+}
+
+.authSignUpStep1__wrapper__form__input__password__label {
+  transition: all 100ms ease-out;
+  font-size: 1em;
+  color: $secondaryFontColor;
+  padding-left: 1em;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.authSignUpStep1__wrapper__form__input__password__label--active {
+  transition: all 100ms ease-out;
+  font-size: 0.8em;
+  color: $secondaryFontColor;
+  padding-left: 1.5em;
+  position: absolute;
+  top: 8%;
+  transform: translateY(0);
+}
+
+.authSignUpStep1__wrapper__form__input__checkbox {
+  margin-bottom: 1em;
+}
+
+.authSignUpStep1__wrapper__form__input__checkbox__checkbox {
+}
+
+.authSignUpStep1__wrapper__form__input__checkbox__label {margin-left: .5em }
+
+.authSignUpStep1__wrapper__form__submit {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 450px;
+  padding: 1em;
+  font-size: 1.4em;
+  border: none;
+  border-radius: 4px;
+  color: $primaryFontColor;
+  background: $primaryColor;
+  cursor: pointer;
+  &:hover {
+    background: $primaryColorHover;
+  }
+}
