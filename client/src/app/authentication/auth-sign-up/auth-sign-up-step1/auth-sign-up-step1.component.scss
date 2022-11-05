@@ -145,19 +145,6 @@
   transform: translateY(0);
 }
 
-.errorMessage {
-  margin-bottom: .5em;
-  color: $errorFontColor
-}
-
-.ng-valid[required] {
-  border-bottom: 5px solid #42A948;
-}
-
-.ng-invalid:not(form) {
-  border-bottom: 5px solid $errorFontColor;
-}
-
 .authSignUpStep1__wrapper__form__input__checkbox {
   margin-bottom: 1em;
 }
