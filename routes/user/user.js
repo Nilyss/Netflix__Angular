@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { signUp } = require('../controller/createUser')
+const { signUp } = require('../../controller/user/createUser')
 
 const baseRoute = '/api/users'
 
