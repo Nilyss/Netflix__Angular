@@ -65,7 +65,9 @@
           >Yes, please email me Netflix special offers.</label
         >
       </div>
-      <button class="authSignUpStep1__wrapper__form__submit">Next</button>
+      <button
+        (click)='createUser(email, password)'
+        class="authSignUpStep1__wrapper__form__submit">Next</button>
     </form>
   </div>
 </div>

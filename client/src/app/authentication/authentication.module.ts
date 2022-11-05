@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 // auth Home Components
 import { AuthHomeComponent } from './auth-home/auth-home.component'
@@ -26,7 +27,7 @@ import { AuthSignUpHeaderComponent } from './auth-sign-up/auth-sign-up-header/au
 import { AuthSignUpFooterComponent } from './auth-sign-up/auth-sign-up-footer/auth-sign-up-footer.component'
 import { AuthSignUpStep1Component } from './auth-sign-up/auth-sign-up-step1/auth-sign-up-step1.component'
 import { AuthSignUpStep2Component } from './auth-sign-up/auth-sign-up-step2/auth-sign-up-step2.component'
-import { AuthSignUpStep3Component } from './auth-sign-up/auth-sign-up-step3/auth-sign-up-step3.component';
+import { AuthSignUpStep3Component } from './auth-sign-up/auth-sign-up-step3/auth-sign-up-step3.component'
 import { AuthSignUpStep0Component } from './auth-sign-up/auth-sign-up-step0/auth-sign-up-step0.component'
 
 const authRoutes: Routes = [
@@ -59,7 +60,12 @@ const authRoutes: Routes = [
     AuthSignUpStep3Component,
     AuthSignUpStep0Component,
   ],
-  imports: [CommonModule, FormsModule, RouterModule.forChild(authRoutes)],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(authRoutes),
+    HttpClientModule,
+  ],
   exports: [AuthHomeComponent],
 })
 export class AuthenticationModule {}
