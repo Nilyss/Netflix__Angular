@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
-import { User } from '../../user'
 import { AuthenticationService } from '../../authentication.service'
 
 @Component({
@@ -8,31 +7,31 @@ import { AuthenticationService } from '../../authentication.service'
   styleUrls: ['./auth-sign-up-step1.component.scss'],
 })
 export class AuthSignUpStep1Component implements OnInit {
-  // @Output() step1 = new EventEmitter<boolean>()
-  users: User[] = []
-  email: string = ''
-  password: string = ''
+  // send true if the account is successfully created, for changing display component
+  @Output() step1 = new EventEmitter<boolean>()
+
+  emailInput: string = ''
+  passwordInput: string = ''
 
   constructor(private authService: AuthenticationService) {}
 
-  createUser(email: string, password: string) {
-    email = this.email.trim()
+  signupSubmit(email: string, password: string) {
+    email = this.emailInput.trim()
+    password = this.passwordInput.trim()
     if (!email) {
       return
     }
-    password = this.password.trim()
     if (!password) {
       return
     }
-    console.log(email, password)
-    this.authService
-      .addUser({ email, password })
-      .subscribe((user) => this.users.push(user))
+    this.authService.addUser({ email, password }).subscribe((res) => {
+      if (res) {
+        this.step1.emit(true)
+      } else {
+        console.error('HTTP Request failed')
+      }
+    })
   }
 
   ngOnInit(): void {}
-
-  // isStepOneValid() {
-  //   this.step1.emit(true)
-  // }
 }
