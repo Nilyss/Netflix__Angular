@@ -38,6 +38,19 @@ const userSchema = Schema({
       'Must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, at least 8 characters, Can contain special characters',
     ],
   },
+  profiles: {
+    type: Array({
+      nickname: String,
+      profilePicture: {
+        type: String,
+        default: '../../client/assets/images/profilePicture/default.png',
+      },
+      isChild: {
+        type: Number,
+        default: 0,
+      },
+    }),
+  },
 })
 
 // hash password before saving user in DB

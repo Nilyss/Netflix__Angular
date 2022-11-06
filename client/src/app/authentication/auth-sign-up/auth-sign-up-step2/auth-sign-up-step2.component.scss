@@ -1,0 +1,116 @@
+@import '../../../../utils/styles/variables';
+
+.authSignUpStep2 {
+  display: flex;
+  justify-content: center;
+  padding: 3em 0 8em 0;
+}
+
+.authSignUpStep2__wrapper {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 450px;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+}
+
+.authSignUpStep2__wrapper__stepNumber {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.authSignUpStep2__wrapper__stepNumber--number {
+  font-weight: 700;
+}
+
+.authSignUpStep2__wrapper__headers {
+  margin-bottom: 1em;
+}
+
+.authSignUpStep2__wrapper__headers__title {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  font-weight: bold;
+  font-size: 32px;
+  width: 450px;
+  margin-bottom: 0.5em;
+}
+
+.authSignUpStep2__wrapper__headers__subtitle {
+  @media (max-width: $mobileBreakpoint) {
+    width: 200px;
+  }
+  font-size: 1em;
+  width: 300px;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.authSignUpStep2__wrapper__headers__form__card {
+  padding: 1em 0 1em 0;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $quaternaryFontColor;
+  border-bottom: 1px solid $quaternaryFontColor;
+  margin-bottom: 2em;
+}
+
+.authSignUpStep2__wrapper__headers__form__card__fig {
+  width: 75px;
+  object-fit: cover;
+}
+
+.authSignUpStep2__wrapper__headers__form__card__fig__img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.authSignUpStep2__wrapper__headers__form__card__input {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 250px;
+  padding: 0.5em 1em 0.5em 1em;
+  background: #ffffff;
+  border: 1px solid $quaternaryFontColor;
+  outline: none;
+  color: #000000;
+  font-size: 1em;
+}
+
+.authSignUpStep2__wrapper__headers__form__card__checkboxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+}
+
+.authSignUpStep2__wrapper__headers__form__submitWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.authSignUpStep2__wrapper__headers__form__submitWrapper__submit {
+  @media (max-width: $mobileBreakpoint) {
+    width: 300px;
+  }
+  width: 250px;
+  padding: .5em;
+  font-size: 1.4em;
+  border: none;
+  border-radius: 4px;
+  color: $primaryFontColor;
+  background: $primaryColor;
+  cursor: pointer;
+  &:hover {
+    background: $primaryColorHover;
+  }
+}

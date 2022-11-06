@@ -13,13 +13,12 @@ import { Component, OnInit } from '@angular/core'
             ></app-auth-sign-up-step0>
           </article>
           <article *ngIf="step1 === true">
-            <app-auth-sign-up-step1></app-auth-sign-up-step1>
+            <app-auth-sign-up-step1
+              (step1)="isStepOneValid($event)"
+            ></app-auth-sign-up-step1>
           </article>
           <article *ngIf="step2 === true">
             <app-auth-sign-up-step2></app-auth-sign-up-step2>
-          </article>
-          <article *ngIf="step3 === true">
-            <app-auth-sign-up-step3></app-auth-sign-up-step3>
           </article>
         </section>
       </main>
@@ -33,15 +32,18 @@ export class AuthSignUpComponent implements OnInit {
 
   step0: boolean
   step1: boolean = false
-  step2: boolean = false
-  step3: boolean = false
+  step2: boolean = true // false after step2 component get finished
 
   ngOnInit(): void {
-    this.step0 = true
+    this.step0 = false // true after step2 component get finished
   }
 
   isStepZeroValid(submit: boolean) {
     this.step0 = !submit
     this.step1 = submit
+  }
+  isStepOneValid(submit: boolean) {
+    this.step1 = !submit
+    this.step2 = submit
   }
 }
