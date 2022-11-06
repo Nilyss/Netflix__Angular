@@ -1,0 +1,93 @@
+<div class="authSignUpStep1">
+  <div class="authSignUpStep1__wrapper">
+    <p class="authSignUpStep1__wrapper__stepNumber">
+      Step
+      <span class="authSignUpStep1__wrapper__stepNumber--number">1</span> of
+      <span class="authSignUpStep1__wrapper__stepNumber--number">3</span>
+    </p>
+    <h1 class="authSignUpStep1__wrapper__title">
+      Create a password to start your membership
+    </h1>
+    <div class="authSignUpStep1__wrapper__message">
+      <p>Just a few more steps and you're done!</p>
+      <p>We hate paperwork, too.</p>
+    </div>
+
+    <form #signupForm="ngForm"
+          (ngSubmit)='signupSubmit(emailInput, passwordInput)'
+          class="authSignUpStep1__wrapper__form">
+      <div class="authSignUpStep1__wrapper__form__input__email">
+        <input
+          class="authSignUpStep1__wrapper__form__input__email__input input"
+          id="email"
+          pattern="^((\w\w+)[.\-]?)+@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"
+          [(ngModel)]="emailInput"
+          name="email"
+          type="email"
+          #email="ngModel"
+          required
+        />
+        <label
+          for="email"
+          class="authSignUpStep1__wrapper__form__input__email__label"
+          [ngClass]="{
+            'authSignUpStep1__wrapper__form__input__email__label--active':
+              emailInput.length > 0
+          }"
+          >Email</label
+        >
+      </div>
+      <p
+        [hidden]="email.valid || email.pristine"
+        class="errorMessage"
+      >
+        Please enter a valid email address
+      </p>
+      <div class="authSignUpStep1__wrapper__form__input__password">
+        <input
+          class="authSignUpStep1__wrapper__form__input__password__input input"
+          id="password"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+          [(ngModel)]="passwordInput"
+          name="password"
+          type="password"
+          #password="ngModel"
+          required
+        />
+        <label
+          class="authSignUpStep1__wrapper__form__input__password__label"
+          [ngClass]="{
+            'authSignUpStep1__wrapper__form__input__password__label--active':
+              passwordInput.length > 0
+          }"
+          for="password"
+          >Add a password</label
+        >
+      </div>
+      <p
+        [hidden]="password.valid || password.pristine"
+        class="errorMessage"
+      >
+        Your password must contain at least 1 uppercase letter, 1 lowercase
+        letter, and 1 number, at least 8 characters, and can contain special
+        characters
+      </p>
+      <div class="authSignUpStep1__wrapper__form__input__checkbox">
+        <input
+          class="authSignUpStep1__wrapper__form__input__checkbox__checkbox"
+          type="checkbox"
+          id="specialOffer"
+        />
+        <label
+          class="authSignUpStep1__wrapper__form__input__checkbox__label"
+          for="specialOffer"
+          >Yes, please email me Netflix special offers.</label
+        >
+      </div>
+      <button
+        type='submit'
+        [disabled]='!signupForm.form.valid'
+        class="authSignUpStep1__wrapper__form__submit">Next</button>
+    </form>
+  </div>
+</div>

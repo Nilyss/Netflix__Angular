@@ -1,30 +1,32 @@
 {
-  "name": "netflix--angular",
-  "version": "0.0.0",
+  "name": "netflix__angular--backend",
+  "version": "1.0.0",
+  "description": "Back-end for the web app netflix__angular",
+  "main": "app.js",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "start": "nodemon app.js"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^14.2.0",
-    "@angular/common": "^14.2.0",
-    "@angular/compiler": "^14.2.0",
-    "@angular/core": "^14.2.0",
-    "@angular/forms": "^14.2.0",
-    "@angular/platform-browser": "^14.2.0",
-    "@angular/platform-browser-dynamic": "^14.2.0",
-    "@angular/router": "^14.2.0",
-    "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nilyss/Netflix__Angular.git"
   },
+  "author": "Nicolas DECRESSAC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nilyss/Netflix__Angular/issues"
+  },
+  "homepage": "https://github.com/Nilyss/Netflix__Angular#readme",
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.4",
-    "@angular/cli": "~14.2.4",
-    "@angular/compiler-cli": "^14.2.0",
-    "typescript": "~4.7.2"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1",
+    "mongoose-unique-validator": "^3.1.0"
   }
 }
