@@ -1,5 +1,4 @@
-const dotenv = require('dotenv') // Environment variable https://www.npmjs.com/package/dotenv
-dotenv.config()
+require('dotenv').config() // Environment variable https://www.npmjs.com/package/dotenv
 const mongoose = require('mongoose') // https://www.npmjs.com/package//mongoose
 
 module.exports = () => {
@@ -10,7 +9,7 @@ module.exports = () => {
         console.log('Successfully connected to DB')
       }
       if (err) {
-        console.log('Connexion to DB failed')
+        console.log(err, ': Connexion to DB failed')
       }
     }
   )

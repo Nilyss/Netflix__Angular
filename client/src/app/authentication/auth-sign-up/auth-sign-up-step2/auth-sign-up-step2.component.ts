@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-auth-sign-up-step2',
@@ -6,13 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core'
   styleUrls: ['./auth-sign-up-step2.component.scss'],
 })
 export class AuthSignUpStep2Component implements OnInit {
-  @Output() step3 = new EventEmitter<boolean>()
-
   constructor() {}
 
+  tempImg: string = '../../../../assets/default.png' // remove after http request setup
   ngOnInit(): void {}
-
-  step3Send() {
-    this.step3.emit(true)
-  }
 }
