@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { signUp } = require('../../controller/user/createUser')
+
 const { login } = require('../../controller/user/connectUser')
 const { logout } = require('../../controller/user/disconnectUser')
 

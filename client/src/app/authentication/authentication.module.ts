@@ -27,6 +27,7 @@ import { AuthSignUpHeaderComponent } from './auth-sign-up/auth-sign-up-header/au
 import { AuthSignUpFooterComponent } from './auth-sign-up/auth-sign-up-footer/auth-sign-up-footer.component'
 import { AuthSignUpStep1Component } from './auth-sign-up/auth-sign-up-step1/auth-sign-up-step1.component'
 import { AuthSignUpStep2Component } from './auth-sign-up/auth-sign-up-step2/auth-sign-up-step2.component'
+
 import { AuthSignUpStep0Component } from './auth-sign-up/auth-sign-up-step0/auth-sign-up-step0.component'
 
 const authRoutes: Routes = [
