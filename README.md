@@ -6,7 +6,7 @@
 
 * Open a shell
 * Download back-end required dependencies with `npm install`
-* Start the app with `npm run start` command
+* Start the server with `npm run start` command
 
 * Open another shell
 * jump in front-end with cd client command
