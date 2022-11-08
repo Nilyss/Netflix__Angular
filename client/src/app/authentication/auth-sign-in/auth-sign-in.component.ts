@@ -12,7 +12,7 @@ import { Component } from '@angular/core'
         />
       </figure>
       <app-auth-sign-in-header></app-auth-sign-in-header>
-      <main>
+      <main class="authLogin__main">
         <app-auth-sign-in-form></app-auth-sign-in-form>
       </main>
       <app-auth-sign-in-footer></app-auth-sign-in-footer>

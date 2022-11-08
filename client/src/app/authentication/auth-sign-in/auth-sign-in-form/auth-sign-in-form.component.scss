@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 1em;
 }
 
 .authSignIn__wrapper {
@@ -125,9 +126,6 @@
   font-size: 1em;
 }
 
-.authSignIn__wrapper__submit {
-}
-
 .authSignIn__wrapper__submit__button {
   display: flex;
   flex-flow: column;
@@ -141,6 +139,9 @@
   color: $primaryFontColor;
   font-size: 1em;
   cursor: pointer;
+  &:disabled {
+    background: $tertiaryFontColor;
+  }
 }
 
 .authSignIn__wrapper__remember {
@@ -149,9 +150,6 @@
   justify-content: space-between;
   color: $quaternaryFontColor;
   font-size: 0.9em;
-}
-
-.authSignIn__wrapper__remember__checkboxWrapper {
 }
 
 .authSignIn__wrapper__remember__checkboxWrapper__checkbox {

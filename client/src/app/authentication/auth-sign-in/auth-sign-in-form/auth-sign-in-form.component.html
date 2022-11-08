@@ -1,38 +1,36 @@
 <div class="authSignIn">
   <div class="authSignIn__wrapper">
     <h1 class="authSignIn__wrapper__title">Sign In</h1>
-    <form #loginForm="ngForm" class="authSignIn__wrapper__form">
+    <form (ngSubmit)='loginSubmit(emailInput, passwordInput)' #loginForm="ngForm" class="authSignIn__wrapper__form">
       <div class="authSignIn__wrapper__form__email">
         <input
           class="authSignIn__wrapper__form__email__input authSignIn--input"
           id="email"
-          [(ngModel)]="email"
+          pattern='^((\w\w+)[.\-]?)+@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+          [(ngModel)]="emailInput"
           name="email"
           type="email"
+          #email="ngModel"
           required
         />
         <label
           for="email"
           class="authSignIn__wrapper__form__email__label"
           [ngClass]="{
-            'authSignIn__wrapper__form__email__label--active': email.length >= 1
+            'authSignIn__wrapper__form__email__label--active': emailInput.length > 0
           }"
           >Email or phone number</label
         >
-        <p
-          class="authSignIn__wrapper__form__errorInput"
-          *ngIf="email.length === 0"
-        >
-          {{ errorMail }}
-        </p>
       </div>
       <div class="authSignIn__wrapper__form__password">
         <input
           class="authSignIn__wrapper__form__password__input authSignIn--input"
           id="password"
-          [(ngModel)]="password"
+          pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$'
+          [(ngModel)]="passwordInput"
           name="password"
           type="password"
+          #password='ngModel'
           required
         />
         <label
@@ -40,19 +38,18 @@
           class='authSignIn__wrapper__form__password__label'
           [ngClass]="{
             'authSignIn__wrapper__form__password__label--active':
-              password.length >= 1
+              passwordInput.length > 0
           }"
         >Password</label
         >
-        <p
-          class="authSignIn__wrapper__form__errorInput"
-          *ngIf="password.length === 0"
-        >
-          {{ errorPassword }}
-        </p>
       </div>
+      <p
+        class="authSignIn__wrapper__form__errorInput"
+      >
+        {{ errorLogin }}
+      </p>
       <div class="authSignIn__wrapper__submit">
-        <button (click)="login()" class="authSignIn__wrapper__submit__button">
+        <button type='submit' [disabled]='!loginForm.form.valid' class="authSignIn__wrapper__submit__button">
           Sign In
         </button>
       </div>
