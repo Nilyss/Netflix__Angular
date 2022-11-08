@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
+import { AuthenticationService } from '../../authentication.service'
 
 @Component({
   selector: 'app-auth-sign-in-form',
@@ -7,34 +8,33 @@ import { Router } from '@angular/router'
   styleUrls: ['auth-sign-in-form.component.scss'],
 })
 export class AuthSignInFormComponent {
-  email: string = ''
-  password: string = ''
-  errorMail: string = ''
-  errorPassword: string = ''
+  emailInput: string = ''
+  passwordInput: string = ''
+  errorLogin: string = ''
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService
+  ) {}
 
-  login() {
-    {
-      this.errorMail = ''
-      this.errorPassword = ''
-      if (this.email === '') {
-        console.log('error mail proc')
-        this.errorMail = 'Please enter a valid email or phone number.'
-        return
-      }
-      if (this.password === '') {
-        console.log('error password proc')
-        this.errorPassword =
-          'Your password must contain between 4 and 60 characters.'
-        return
-      }
-      if (this.email === 'admin@admin.com' && this.password === 'adminlol') {
-        this.router.navigate(['/home'])
-      } else {
-        this.password = ''
-        this.errorPassword = 'Invalid account information'
-      }
+  loginSubmit(email: string, password: string) {
+    this.errorLogin = ''
+    email = this.emailInput
+    password = this.passwordInput
+    if (!email) {
+      return
     }
+    if (!password) {
+      return
+    }
+    this.authService.connectUser({ email, password }).subscribe((res) => {
+      if (res) {
+        console.log('logged')
+      } else {
+        this.passwordInput = ''
+        this.errorLogin =
+          'Invalid login. Please check your email or/and password'
+      }
+    })
   }
 }

@@ -10,13 +10,16 @@ module.exports.createToken = (id) => {
 }
 
 module.exports.isValidUser = (req, res, next) => {
+  console.log('isValidUser ?')
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, process.env.JWT_KEY, async (error, decodedToken) => {
       if (error) {
         res.locals.user = null
         res.cookie('jwt', '', { maxAge: 1 })
-        next()
+        const errorMessage = 'Wrong token provided, access forbidden'
+        console.log(error, errorMessage)
+        return res.status(401).json({ errorMessage })
       } else {
         const user = await User.findById(decodedToken.id)
         res.locals.user = user
@@ -25,11 +28,14 @@ module.exports.isValidUser = (req, res, next) => {
     })
   } else {
     res.locals.user = null
-    next()
+    const errorMessage = 'Access denied : No token provided'
+    console.log(errorMessage)
+    return res.status(401).json({ errorMessage })
   }
 }
 
 module.exports.isAccessGranted = (req, res, next) => {
+  console.log('isAccessGranted ?')
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, process.env.JWT_KEY, async (error, decodedToken) => {
@@ -46,8 +52,8 @@ module.exports.isAccessGranted = (req, res, next) => {
       }
     })
   } else {
-    const message = 'Access denied : No token provided'
-    console.log(message)
-    res.status(401).json({ message })
+    const errorMessage = 'Access denied : No token provided'
+    console.log(errorMessage)
+    return res.status(401).json({ errorMessage })
   }
 }

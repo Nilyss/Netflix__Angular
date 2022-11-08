@@ -1,4 +1,4 @@
-module.exports.logout = (req, res) => {
+module.exports.userLogout = (req, res) => {
   // response and logs messages
   const disconnectFailure = 'User already disconnected: no token provided'
   const disconnectSuccessful =

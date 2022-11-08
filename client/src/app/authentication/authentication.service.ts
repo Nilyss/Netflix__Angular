@@ -17,6 +17,15 @@ export class AuthenticationService {
       )
   }
 
+  connectUser(user: User): Observable<User> {
+    return this.http
+      .post<User>(this.UsersApiUrl + '/login', user, this.httpOptions)
+      .pipe(
+        tap((res) => this.log(res)),
+        catchError((error) => this.handleError(error, null))
+      )
+  }
+
   // logs & errors
   private log(res: any) {
     console.table(res)
