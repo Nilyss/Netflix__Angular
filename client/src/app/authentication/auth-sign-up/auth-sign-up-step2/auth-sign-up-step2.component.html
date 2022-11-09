@@ -1,4 +1,4 @@
-<div *ngIf='userData !== undefined'  class="authSignUpStep2">
+<div *ngIf="userData !== undefined" class="authSignUpStep2">
   <div class="authSignUpStep2__wrapper">
     <p class="authSignUpStep2__wrapper__stepNumber">
       Step
@@ -12,21 +12,27 @@
       </p>
     </div>
     <form
-      *ngFor='let profile of userData.profiles'
-      class="authSignUpStep2__wrapper__headers__form">
-      <div
-
-        class='authSignUpStep2__wrapper__headers__form__card'>
+      #updateForm="ngForm"
+      *ngFor="let profile of userData.profiles"
+      (ngSubmit)='editDefaultUser(profile._id)'
+      class="authSignUpStep2__wrapper__headers__form"
+    >
+      <div class="authSignUpStep2__wrapper__headers__form__card">
         <figure class="authSignUpStep2__wrapper__headers__form__card__fig">
           <img
-            class='authSignUpStep2__wrapper__headers__form__card__fig__img'
-            src="{{profile.profilePicture}}" alt="profile" />
+            class="authSignUpStep2__wrapper__headers__form__card__fig__img"
+            src="{{ profile.profilePicture }}"
+            alt="profile"
+          />
         </figure>
         <input
           class="authSignUpStep2__wrapper__headers__form__card__input"
           type="text"
-          placeholder="{{profile.nickname}}"
+          placeholder="{{ profile.nickname }}"
           id="nickname"
+          [(ngModel)]="inputNickname"
+          name="nickname"
+          #nickname="ngModel"
         />
         <label for="nickname"></label>
         <div
@@ -35,6 +41,10 @@
           <input
             class="authSignUpStep2__wrapper__headers__form__card__checkboxWrapper__checkbox"
             type="checkbox"
+            id="isChild"
+            [(ngModel)]="inputIsChild"
+            name="isChild"
+            #isChild="ngModel"
           />
           <label
             class="authSignUpStep2__wrapper__headers__form__card__checkboxWrapper__label"
@@ -42,8 +52,11 @@
           >
         </div>
       </div>
-      <div class='authSignUpStep2__wrapper__headers__form__submitWrapper'>
-        <button class="authSignUpStep2__wrapper__headers__form__submitWrapper__submit">
+      <div class="authSignUpStep2__wrapper__headers__form__submitWrapper">
+        <button
+          type='submit'
+          class="authSignUpStep2__wrapper__headers__form__submitWrapper__submit"
+        >
           Continue
         </button>
       </div>

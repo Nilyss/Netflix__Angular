@@ -11,6 +11,19 @@ export class AuthSignUpStep2Component implements OnInit {
   userId: string
   userData: User | undefined
 
+  inputNickname: string
+  inputIsChild: boolean
+
+  updatedData: [
+    {
+      _id: string
+      nickname: string
+      profilePicture: string
+      isChild: boolean
+      isAccountAdmin: boolean
+    }
+  ]
+
   constructor(private authService: AuthenticationService) {}
   ngOnInit() {
     this.authService.getConnectedUserId().subscribe((userId: string) => {
@@ -24,5 +37,26 @@ export class AuthSignUpStep2Component implements OnInit {
         })
       }
     })
+  }
+
+  editDefaultUser(id: string) {
+    if (this.userData) {
+      this.userData.profiles.forEach((data) => {
+        this.updatedData = [
+          {
+            ...data,
+            nickname: this.inputNickname,
+            isChild: this.inputIsChild,
+            isAccountAdmin: true,
+          },
+        ]
+      })
+      this.authService
+        .editConnectedUser(this.userId, this.updatedData)
+        ?.subscribe((updatedData) => {
+          if (updatedData) {
+          }
+        })
+    }
   }
 }
