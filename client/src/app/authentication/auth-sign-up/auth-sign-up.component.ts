@@ -32,10 +32,10 @@ export class AuthSignUpComponent implements OnInit {
 
   step0: boolean
   step1: boolean = false
-  step2: boolean = false // false after step2 component get finished
+  step2: boolean = false
 
   ngOnInit(): void {
-    this.step0 = true // true after step2 component get finished
+    this.step0 = true
   }
 
   isStepZeroValid(submit: boolean) {

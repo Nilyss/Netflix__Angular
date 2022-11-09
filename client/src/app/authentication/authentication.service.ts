@@ -60,6 +60,29 @@ export class AuthenticationService implements OnInit {
       )
   }
 
+  editConnectedUser(
+    userId: string,
+    profiles: [
+      {
+        nickname: string
+        isChild: boolean
+      }
+    ]
+  ): Observable<User> | undefined {
+    return this.http
+      .put<User>(
+        this.usersApiUrl + `/users/update/${userId}`,
+        { profiles },
+        this.httpOptions
+      )
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+
   // logs & errors
   private log(res: any) {
     console.log(res)
