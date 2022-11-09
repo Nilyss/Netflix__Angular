@@ -25,13 +25,13 @@ module.exports.userUpdateOne = async (req, res) => {
     ).then((updateStatus) => {
       if (updateStatus.modifiedCount === 0) {
         console.log(errorMessage, updateStatus)
-        return res.status(400).json({ errorMessage, updateStatus })
+        return res.status(400).json(errorMessage)
       }
       console.log(updateStatus, successMessage)
-      res.status(201).json({ successMessage, updateStatus })
+      res.status(201).json(updateStatus)
     })
   } catch (error) {
     console.log(serverError, error)
-    res.status(500).json({ serverError, error })
+    res.status(500).json(serverError)
   }
 }

@@ -44,10 +44,9 @@ module.exports.isAccessGranted = (req, res, next) => {
         console.log(error, message)
         return res.status(401).json({ message })
       } else {
-        const message = 'Access granted for user id:'
-        const userId = res.locals.user._id
+        const message = `Access granted for user id: ${res.locals.user._id}`
         console.log(message, decodedToken.id)
-        res.status(200).json({ message, userId })
+        res.status(200).json(res.locals.user._id)
         next()
       }
     })

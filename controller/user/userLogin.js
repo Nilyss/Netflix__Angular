@@ -16,7 +16,7 @@ module.exports.userLogin = async (req, res) => {
     await User.findOne({ email }).then((user) => {
       if (!user) {
         console.log(messageError)
-        return res.status(401).json({ messageError })
+        return res.status(401).json(messageError)
       }
 
       bcrypt.compare(password, user.password).then((isValid) => {
@@ -39,12 +39,12 @@ module.exports.userLogin = async (req, res) => {
           isWebsiteAdmin: user.isWebsiteAdmin,
           createdAt: user.createdAt,
         }
-        console.log({ messageSuccess, connectedUser })
-        res.status(200).json({ messageSuccess, connectedUser })
+        console.log(messageSuccess, connectedUser)
+        res.status(200).json(messageSuccess)
       })
     })
   } catch (error) {
     console.log(serverError)
-    res.status(500).json({ serverError })
+    res.status(500).json(serverError)
   }
 }

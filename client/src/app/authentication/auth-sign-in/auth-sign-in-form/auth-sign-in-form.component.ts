@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 import { AuthenticationService } from '../../authentication.service'
+import { User } from '../../user'
 
 @Component({
   selector: 'app-auth-sign-in-form',
@@ -8,6 +9,7 @@ import { AuthenticationService } from '../../authentication.service'
   styleUrls: ['auth-sign-in-form.component.scss'],
 })
 export class AuthSignInFormComponent {
+  user: User
   emailInput: string = ''
   passwordInput: string = ''
   errorLogin: string = ''
@@ -27,7 +29,7 @@ export class AuthSignInFormComponent {
     if (!password) {
       return
     }
-    this.authService.connectUser({ email, password }).subscribe((res) => {
+    this.authService.connectUser(email, password).subscribe((res) => {
       if (res) {
         console.log('logged')
       } else {
