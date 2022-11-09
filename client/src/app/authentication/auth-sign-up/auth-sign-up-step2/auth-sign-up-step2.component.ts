@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { AuthenticationService } from '../../authentication.service'
+import { User } from '../../user'
 
 @Component({
   selector: 'app-auth-sign-up-step2',
@@ -6,8 +8,21 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./auth-sign-up-step2.component.scss'],
 })
 export class AuthSignUpStep2Component implements OnInit {
-  constructor() {}
+  userId: string
+  userData: User | undefined
 
-  tempImg: string = '../../../../assets/default.png' // remove after http request setup
-  ngOnInit(): void {}
+  constructor(private authService: AuthenticationService) {}
+  ngOnInit() {
+    this.authService.getConnectedUserId().subscribe((userId: string) => {
+      this.userId = userId
+      if (!userId) {
+        return console.log("Error: can't get userId")
+      }
+      if (userId) {
+        this.authService.getConnectedUserData(userId)?.subscribe((userData) => {
+          this.userData = userData
+        })
+      }
+    })
+  }
 }

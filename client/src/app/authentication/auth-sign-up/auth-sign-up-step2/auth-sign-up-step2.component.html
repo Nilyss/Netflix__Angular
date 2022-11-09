@@ -1,4 +1,4 @@
-<div class="authSignUpStep2">
+<div *ngIf='userData !== undefined'  class="authSignUpStep2">
   <div class="authSignUpStep2__wrapper">
     <p class="authSignUpStep2__wrapper__stepNumber">
       Step
@@ -11,17 +11,21 @@
         Create a profile for the first person watching Netflix on this account.
       </p>
     </div>
-    <form class="authSignUpStep2__wrapper__headers__form">
-      <div class='authSignUpStep2__wrapper__headers__form__card'>
+    <form
+      *ngFor='let profile of userData.profiles'
+      class="authSignUpStep2__wrapper__headers__form">
+      <div
+
+        class='authSignUpStep2__wrapper__headers__form__card'>
         <figure class="authSignUpStep2__wrapper__headers__form__card__fig">
           <img
             class='authSignUpStep2__wrapper__headers__form__card__fig__img'
-            src="{{tempImg}}" alt="profile" />
+            src="{{profile.profilePicture}}" alt="profile" />
         </figure>
         <input
           class="authSignUpStep2__wrapper__headers__form__card__input"
           type="text"
-          placeholder="Nickname"
+          placeholder="{{profile.nickname}}"
           id="nickname"
         />
         <label for="nickname"></label>

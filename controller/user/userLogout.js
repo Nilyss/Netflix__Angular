@@ -1,4 +1,4 @@
-module.exports.logout = (req, res) => {
+module.exports.userLogout = (req, res) => {
   // response and logs messages
   const disconnectFailure = 'User already disconnected: no token provided'
   const disconnectSuccessful =
@@ -9,19 +9,13 @@ module.exports.logout = (req, res) => {
   try {
     if (!req.cookies.jwt) {
       console.log(disconnectFailure)
-      return res.status(401).json({
-        disconnectFailure,
-      })
+      return res.status(401).json(disconnectFailure)
     }
     res.cookie('jwt', '', { maxAge: 1 })
     console.log(disconnectSuccessful)
-    res.status(200).json({
-      disconnectSuccessful,
-    })
+    res.status(200).json(disconnectSuccessful)
   } catch (error) {
-    console.log(disconnectFailureServer)
-    res.status(500).json({
-      disconnectFailureServer,
-    })
+    console.log(error, disconnectFailureServer)
+    res.status(500).json(disconnectFailureServer)
   }
 }

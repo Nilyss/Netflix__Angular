@@ -20,38 +20,67 @@ const isValidPassword = (password) => {
 
 // Schema for user Model mongoose
 
-const userSchema = Schema({
-  email: {
-    type: String,
-    trim: true,
-    lowercase: true,
-    unique: true,
-    required: true,
-    validate: [isValidEmail, 'Please, indicate an valid mail address'],
-  },
-  password: {
-    type: String,
-    trim: true,
-    require: true,
-    validate: [
-      isValidPassword,
-      'Must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, at least 8 characters, Can contain special characters',
-    ],
-  },
-  profiles: {
-    type: Array({
-      nickname: String,
-      profilePicture: {
-        type: String,
-        default: '../../client/assets/images/profilePicture/default.png',
+const userSchema = Schema(
+  {
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      unique: true,
+      required: true,
+      validate: [isValidEmail, 'Please, indicate an valid mail address'],
+    },
+    password: {
+      type: String,
+      trim: true,
+      require: true,
+      validate: [
+        isValidPassword,
+        'Must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, at least 8 characters, Can contain special characters',
+      ],
+    },
+    phoneNumber: {
+      type: String,
+      trim: true,
+      default: '(+33) ',
+    },
+    postalAddress: {
+      type: Array,
+      default: {
+        firstName: { type: String, require: true },
+        lastName: { type: String, require: true },
+        address: { type: String, require: true },
+        apartment: { type: String },
+        city: { type: String, require: true },
+        stateProvince: { type: String, require: true },
+        country: { type: String, require: true },
+        ZipPostalCode: { type: Number, require: true },
       },
-      isChild: {
-        type: Number,
-        default: 0,
+    },
+    profiles: {
+      type: [
+        {
+          nickname: String,
+          profilePicture: String,
+          isChild: Number,
+          isAccountAdmin: Number,
+        },
+      ],
+      default: {
+        nickname: 'User 1',
+        profilePicture: 'https://i.imgur.com/H39g1H4.png',
+        isChild: 0,
+        isAccountAdmin: 0,
       },
-    }),
+      require: true,
+    },
+    isWebsiteAdmin: {
+      type: Number,
+      default: 0,
+    },
   },
-})
+  { timestamps: true }
+)
 
 // hash password before saving user in DB
 userSchema.pre('save', async function (next) {
