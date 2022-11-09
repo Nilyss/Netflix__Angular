@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { AuthenticationService } from '../../authentication.service'
+import { User } from '../../user'
 
 @Component({
   selector: 'app-auth-sign-up-step1',
@@ -12,6 +13,7 @@ export class AuthSignUpStep1Component implements OnInit {
 
   emailInput: string = ''
   passwordInput: string = ''
+  user: User | undefined
 
   constructor(private authService: AuthenticationService) {}
 
@@ -24,9 +26,14 @@ export class AuthSignUpStep1Component implements OnInit {
     if (!password) {
       return
     }
-    this.authService.addUser({ email, password }).subscribe((res) => {
+    this.authService.addUser(email, password).subscribe((res) => {
       if (res) {
-        this.step1.emit(true)
+        this.authService.connectUser(email, password).subscribe((user) => {
+          this.user = user
+          if (this.user !== undefined) {
+            this.step1.emit(true)
+          }
+        })
       } else {
         console.error('HTTP Request failed')
       }

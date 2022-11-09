@@ -58,27 +58,21 @@ const userSchema = Schema(
       },
     },
     profiles: {
-      type: Array,
+      type: [
+        {
+          nickname: String,
+          profilePicture: String,
+          isChild: Number,
+          isAccountAdmin: Number,
+        },
+      ],
       default: {
-        nickname: {
-          type: String,
-          default: 'User 1',
-          required: true,
-        },
-        profilePicture: {
-          type: String,
-          default: '../../client/assets/images/profilePicture/default.png',
-          required: true,
-        },
-        isChild: {
-          type: Number,
-          default: 0,
-        },
-        isAccountAdmin: {
-          type: Number,
-          default: 0,
-        },
+        nickname: 'User 1',
+        profilePicture: 'https://i.imgur.com/H39g1H4.png',
+        isChild: 0,
+        isAccountAdmin: 0,
       },
+      require: true,
     },
     isWebsiteAdmin: {
       type: Number,
