@@ -1,0 +1,82 @@
+@import '../../../../utils/styles/variables';
+@import '../../../../utils/styles/keyframes';
+
+.homeUserModal {
+  animation: showHomeNavModal 1500ms ease forwards;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 2em;
+}
+
+.homeUserModal__arrow_drop_down {
+  margin-right: 1%;
+  margin-bottom: -.8%;
+  margin-top: -.5%;
+  font-size: 35px;
+  color: #f2f2f2;
+}
+
+.homeUserModal__wrapper {
+  display: flex;
+  flex-flow: column;
+  width: 200px;
+  text-align: left;
+  background: black;
+  color: #f2f2f2;
+  font-size: 0.8em;
+}
+
+.homeUserModal__wrapper__nav {
+  padding: 1em;
+  border-bottom: 0.1em solid grey;
+}
+
+.homeUserModal__wrapper__nav__ul {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.homeUserModal__wrapper__nav__ul__nicknames {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.homeUserModal__wrapper__nav__ul__nicknames__figure {
+  width: 25px;
+}
+
+.homeUserModal__wrapper__nav__ul__nicknames__figure__img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.homeUserModal__wrapper__nav__ul__nicknames__figure__img__text {
+}
+
+.homeUserModal__wrapper__nav__ul__link {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.homeUserModal__wrapper__button {
+  color: #f2f2f2;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 1em;
+}

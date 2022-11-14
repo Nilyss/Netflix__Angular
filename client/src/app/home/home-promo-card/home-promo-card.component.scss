@@ -1,0 +1,101 @@
+// Header component
+
+.articleHomePromo {
+  width: 30%;
+  padding: 2em;
+  color: #f2f2f2;
+  margin-top: 3em;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.articleHomePromo__header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.articleHomePromo__header__fig {
+  width: 30px;
+}
+
+.articleHomePromo__header__fig__img {
+  width: 100%;
+}
+
+.articleHomePromo__header__title {
+  letter-spacing: 0.5em;
+}
+
+// Body component
+
+.articleHomePromo__body {
+  display: flex;
+  flex-flow: column;
+  gap: 2em;
+}
+
+.articleHomePromo__body__fig {
+  width: 400px;
+  object-fit: cover;
+}
+
+.articleHomePromo__body__fig__img {
+  width: 100%;
+}
+
+.articleHomePromo__body__subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.1em;
+}
+
+.articleHomePromo__body__subtitle__logo {
+  width: 50px;
+}
+
+.articleHomePromo__body__description {
+  font-size: 1.2em;
+}
+
+// Footer component
+
+.articleHomePromo__footer {
+  display: flex;
+  gap: 2em;
+}
+
+.articleHomePromo__footer__button {
+  padding: 1em;
+  height: 3em;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.material-symbols-outlined {
+  font-size: 2em;
+}
+
+.playIcon {
+  color: black;
+  fill: black;
+}
+
+.infoIcon {}
+
+.articleHomePromo__footer__button--left {
+  background: #f2f2f2;
+  color: #000000;
+}
+
+.articleHomePromo__footer__button--right {
+  background: rgba(77, 76, 76, 0.92);
+  color: #f2f2f2;
+}

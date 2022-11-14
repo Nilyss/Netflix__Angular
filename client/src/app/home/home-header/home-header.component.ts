@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { AuthenticationService } from '../../authentication/authentication.service'
 import { User } from '../../authentication/user'
 import { Subscription, switchMap } from 'rxjs'
+import { Profile } from '../../profiles/profile'
 
 @Component({
   selector: 'app-home-header',
@@ -12,9 +13,14 @@ import { Subscription, switchMap } from 'rxjs'
 export class HomeHeaderComponent implements OnInit, OnDestroy {
   logo: string = '../../../assets/images/logos/newNetflixLogo.png'
 
-  isShowSearchBar = false
+  isShowSearchBar: boolean = false
   toggleDisplaySearchBar() {
     this.isShowSearchBar = !this.isShowSearchBar
+  }
+
+  isShowProfileModal: boolean = false
+  toggleProfileModal() {
+    this.isShowProfileModal = !this.isShowProfileModal
   }
 
   goToAuth() {
@@ -27,6 +33,7 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   userData: User
+  profile: Profile[]
   dataSubscription: Subscription | undefined
 
   ngOnInit(): void {
@@ -37,6 +44,7 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe((userData) => {
         this.userData = userData
+        this.profile = userData.profiles
       })
   }
   ngOnDestroy() {

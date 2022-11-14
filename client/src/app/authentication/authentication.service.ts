@@ -84,6 +84,17 @@ export class AuthenticationService implements OnInit {
       )
   }
 
+  disconnectUser(): Observable<string> {
+    return this.http
+      .get<string>(this.usersApiUrl + `/users/logout`, this.httpOptions)
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+
   // logs & errors
   private log(res: any) {
     console.log(res)

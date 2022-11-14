@@ -53,7 +53,6 @@ export class AuthSignUpStep2Component implements OnInit, OnDestroy {
     private authService: AuthenticationService,
     private router: Router
   ) {}
-
   ngOnInit() {
     this.dataSubscription = this.authService
       .getConnectedUserId()

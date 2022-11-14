@@ -1,0 +1,118 @@
+@import '../../../utils/styles/variables';
+
+.manageProfileBody {
+  background: #141414;
+  width: 100%;
+  height: 100vh;
+}
+
+.manageProfileBody__main {
+  color: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.manageProfileBody__main__title {
+  font-size: 60px;
+}
+
+.manageProfileBody__main__title__ul {
+  display: flex;
+  gap: 2em;
+}
+
+.manageProfileBody__main__title__ul__profiles {
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  color: $quaternaryFontColor;
+  &:hover {
+    color: $primaryFontColor;
+    .manageProfileBody__main__title__ul__profiles__fig__avatar {
+      border: 4px inset $primaryFontColor;
+    }
+  }
+}
+
+.manageProfileBody__main__title__ul__profiles__fig {
+  min-width: 200px;
+  min-height: 200px;
+  width: 200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  &:after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background: rgba(7, 7, 7, 0.42);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.manageProfileBody__main__title__ul__profiles__addProfile {
+  min-width: 200px;
+  min-height: 200px;
+  width: 200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  &:hover {
+    background: white;
+  }
+}
+
+.manageProfileBody__main__title__ul__profiles__fig__icon {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  font-size: 50px;
+  color: #f2f2f2;
+  z-index: 2;
+}
+
+.manageProfileBody__main__title__ul__profiles__fig__avatar {
+  width: 100%;
+  border-radius: 8px;
+  border: 4px inset rgba(0, 0, 0, 0);
+}
+
+.manageProfileBody__main__title__ul__profiles__fig__logo {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px inset rgba(0, 0, 0, 0);
+  font-size: 150px;
+  position: relative;
+  top: 0;
+  left: 0;
+  color: $secondaryFontColor;
+}
+
+.manageProfileBody__main__title__ul__profiles__nickname {
+  margin-top: 0.5em;
+}
+
+.manageProfileBody__main__title__submit {
+  margin-top: 4em;
+  font-size: 20px;
+  padding: 0.5em;
+  width: 200px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  &:hover {
+    color: #f2f2f2;
+    background: $primaryColorHover;
+  }
+}

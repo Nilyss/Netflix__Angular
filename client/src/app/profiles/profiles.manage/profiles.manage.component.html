@@ -1,0 +1,29 @@
+<body class="manageProfileBody">
+  <main class="manageProfileBody__main" *ngIf="userData">
+    <h1 class="manageProfileBody__main__title">Manage Profiles:</h1>
+    <ul class="manageProfileBody__main__title__ul">
+      <li
+        *ngFor="let profile of userProfiles"
+        class="manageProfileBody__main__title__ul__profiles"
+      >
+        <figure class="manageProfileBody__main__title__ul__profiles__fig">
+          <span class='manageProfileBody__main__title__ul__profiles__fig__icon material-symbols-outlined'>edit</span>
+          <img
+            class="manageProfileBody__main__title__ul__profiles__fig__avatar"
+            src="{{ profile.profilePicture }}"
+          />
+        </figure>
+        <h2 class="manageProfileBody__main__title__ul__profiles__nickname">
+          {{ profile.nickname }}
+        </h2>
+      </li>
+      <li class='manageProfileBody__main__title__ul__profiles'>
+        <div class="manageProfileBody__main__title__ul__profiles__addProfile">
+          <p class='manageProfileBody__main__title__ul__profiles__fig__logo material-symbols-outlined'>add_circle</p>
+        </div>
+        <h2 class='manageProfileBody__main__title__ul__profiles__nickname'>Add profile</h2>
+      </li>
+    </ul>
+    <button class="manageProfileBody__main__title__submit">Done</button>
+  </main>
+</body>

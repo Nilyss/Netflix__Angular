@@ -7,7 +7,7 @@
       alt="logo"
     />
   </figure>
-  <nav *ngFor="let profile of userData.profiles" class="homeHeader__nav">
+  <nav  class="homeHeader__nav">
     <ul class="homeHeader__nav__ul homeHeader__nav__ul--left">
       <li
         routerLink="/authentication"
@@ -66,17 +66,24 @@
       <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
         <span class="material-symbols-outlined"> notifications </span>
       </li>
-      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+      <li
+        (mouseenter)='isShowProfileModal = true'
+        class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
         <img
           class="homeHeader__nav__ul__li--right__avatar"
-          src="{{ profile.profilePicture }}"
+          src="{{ profile[0].profilePicture }}"
           alt="avatar"
         />
         <p class="homeHeader__nav__ul__li--right__profile">
-          {{ profile.nickname }}
+          {{ profile[0].nickname }}
         </p>
         <span class="material-symbols-outlined"> arrow_drop_down </span>
       </li>
     </ul>
   </nav>
 </header>
+<div
+  (mouseleave)='isShowProfileModal = false'
+  *ngIf='isShowProfileModal === true'>
+  <app-home-user-modal></app-home-user-modal>
+</div>
