@@ -68,9 +68,7 @@
         [hidden]="password.valid || password.pristine"
         class="errorMessage"
       >
-        Your password must contain at least 1 uppercase letter, 1 lowercase
-        letter, and 1 number, at least 8 characters, and can contain special
-        characters
+       {{errorMessage}}
       </p>
       <div class="authSignUpStep1__wrapper__form__input__checkbox">
         <input

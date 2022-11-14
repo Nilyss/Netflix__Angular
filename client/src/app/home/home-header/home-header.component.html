@@ -1,0 +1,82 @@
+<header *ngIf="userData !== undefined" class="homeHeader">
+  <figure class="homeHeader__fig">
+    <img
+      (click)="goToAuth()"
+      class="homeHeader__fig__img"
+      src="{{ logo }}"
+      alt="logo"
+    />
+  </figure>
+  <nav *ngFor="let profile of userData.profiles" class="homeHeader__nav">
+    <ul class="homeHeader__nav__ul homeHeader__nav__ul--left">
+      <li
+        routerLink="/authentication"
+        class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left"
+      >
+        Home
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left">
+        TV Shows
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left">
+        Movies
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left">
+        New & popular
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left">
+        My List
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left">
+        Browse by Languages
+      </li>
+    </ul>
+    <ul class="homeHeader__nav__ul homeHeader__nav__ul--right">
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+        <form
+          [ngClass]="
+            isShowSearchBar === false
+              ? 'homeHeader__nav__ul__li__searchForm--false'
+              : 'homeHeader__nav__ul__li__searchForm--true'
+          "
+        >
+          <p
+            (click)="toggleDisplaySearchBar()"
+            class="homeHeader__nav__ul__li__searchForm__icons material-symbols-outlined"
+          >
+            search
+          </p>
+          <label for="searchForVideos"></label>
+          <input
+            [ngClass]="
+              isShowSearchBar === false
+                ? 'homeHeader__nav__ul__li__searchForm__input--false'
+                : 'homeHeader__nav__ul__li__searchForm__input--true'
+            "
+            type="text"
+            name="searchForVideos"
+            id="searchForVideos"
+            placeholder="Title, Person, Type"
+          />
+        </form>
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+        Kids
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+        <span class="material-symbols-outlined"> notifications </span>
+      </li>
+      <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+        <img
+          class="homeHeader__nav__ul__li--right__avatar"
+          src="{{ profile.profilePicture }}"
+          alt="avatar"
+        />
+        <p class="homeHeader__nav__ul__li--right__profile">
+          {{ profile.nickname }}
+        </p>
+        <span class="material-symbols-outlined"> arrow_drop_down </span>
+      </li>
+    </ul>
+  </nav>
+</header>

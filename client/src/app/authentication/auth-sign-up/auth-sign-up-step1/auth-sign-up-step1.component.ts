@@ -1,19 +1,30 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core'
 import { AuthenticationService } from '../../authentication.service'
-import { User } from '../../user'
+import { map, Subscription, switchMap, tap } from 'rxjs'
 
 @Component({
   selector: 'app-auth-sign-up-step1',
   templateUrl: './auth-sign-up-step1.component.html',
   styleUrls: ['./auth-sign-up-step1.component.scss'],
 })
-export class AuthSignUpStep1Component implements OnInit {
+export class AuthSignUpStep1Component implements OnInit, OnDestroy {
   // send true if the account is successfully created, for changing display component
   @Output() step1 = new EventEmitter<boolean>()
 
   emailInput: string = ''
   passwordInput: string = ''
-  user: User | undefined
+  errorMessage: string =
+    ' Your password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, at least 8 characters, and can contain special characters'
+
+  userId: string
+
+  dataSubscription: Subscription | undefined
 
   constructor(private authService: AuthenticationService) {}
 
@@ -26,19 +37,36 @@ export class AuthSignUpStep1Component implements OnInit {
     if (!password) {
       return
     }
-    this.authService.addUser(email, password).subscribe((res) => {
-      if (res) {
-        this.authService.connectUser(email, password).subscribe((user) => {
-          this.user = user
-          if (this.user !== undefined) {
-            this.step1.emit(true)
+    this.dataSubscription = this.authService
+      .addUser(email, password)
+      .pipe(
+        tap((user) => {
+          if (!user) {
+            this.passwordInput = ''
+            this.errorMessage =
+              'An account with this email address already exist'
+            return console.error(
+              'HTTP Request failed : An account with this email address already exist'
+            )
           }
-        })
-      } else {
-        console.error('HTTP Request failed')
-      }
-    })
+        }),
+        switchMap((userId) =>
+          this.authService.connectUser(email, password).pipe(
+            map((id) => {
+              this.userId = id
+            })
+          )
+        )
+      )
+      .subscribe(() => {
+        if (this.userId !== undefined) {
+          this.step1.emit(true)
+        }
+      })
   }
 
   ngOnInit(): void {}
+  ngOnDestroy() {
+    this.dataSubscription?.unsubscribe()
+  }
 }

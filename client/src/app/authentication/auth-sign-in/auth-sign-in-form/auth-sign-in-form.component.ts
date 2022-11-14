@@ -32,6 +32,7 @@ export class AuthSignInFormComponent {
     this.authService.connectUser(email, password).subscribe((res) => {
       if (res) {
         console.log('logged')
+        this.router.navigate(['browse'])
       } else {
         this.passwordInput = ''
         this.errorLogin =

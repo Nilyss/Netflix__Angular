@@ -7,7 +7,6 @@ import { User } from './user'
   providedIn: 'root',
 })
 export class AuthenticationService implements OnInit {
-  userId: string = ''
   createUser: {}
 
   ngOnInit() {}
@@ -27,9 +26,9 @@ export class AuthenticationService implements OnInit {
       )
   }
 
-  connectUser(email: string, password: string): Observable<User> {
+  connectUser(email: string, password: string): Observable<string> {
     return this.http
-      .post<User>(
+      .post<string>(
         this.usersApiUrl + '/users/login',
         { email, password },
         this.httpOptions
@@ -40,16 +39,18 @@ export class AuthenticationService implements OnInit {
       )
   }
 
-  getConnectedUserId() {
-    return this.http.get(this.usersApiUrl + '/jwtid', this.httpOptions).pipe(
-      tap((res) => {
-        this.log('User ID successfully fetched => ' + res)
-      }),
-      catchError((error) => this.handleError(error, null))
-    )
+  getConnectedUserId(): Observable<string> {
+    return this.http
+      .get<string>(this.usersApiUrl + '/jwtid', this.httpOptions)
+      .pipe(
+        tap((res) => {
+          this.log('User ID successfully fetched => ' + res)
+        }),
+        catchError((error) => this.handleError(error, null))
+      )
   }
 
-  getConnectedUserData(userId: string): Observable<User> | undefined {
+  getConnectedUserData(userId: string): Observable<User> {
     return this.http
       .get<User>(this.usersApiUrl + `/users/${userId}`, this.httpOptions)
       .pipe(
