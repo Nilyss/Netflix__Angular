@@ -1,5 +1,6 @@
 @import '../../../utils/styles/variables';
 
+//********** Before select an profile **********
 .manageProfileBody {
   background: #141414;
   width: 100%;
@@ -115,4 +116,199 @@
     color: #f2f2f2;
     background: $primaryColorHover;
   }
+}
+
+//********** After select an profile => update profile form **********
+
+.manageProfileBody__main--form {
+  color: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.manageProfileBody__main__title--form {
+  font-size: 50px;
+  position: relative;
+  width: 500px;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #737373;
+  }
+}
+
+.manageProfileBody__main__title__form--form {
+  display: flex;
+  flex-flow: column;
+  width: 500px;
+}
+
+.manageProfileBody__main__title__form__wrapper--form {
+  display: flex;
+}
+
+.manageProfileBody__main__title__form__wrapper__fig--form {
+  width: 100px;
+  margin-right: 2em;
+}
+
+.manageProfileBody__main__title__form__wrapper__fig__avatar--form {
+  width: 100%;
+}
+
+//********** nickname **********
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper--form {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__input--form {
+  width: 100%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  background: $tertiaryFontColor;
+  color: $primaryFontColor;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+//********** language **********
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__languageWrapper__title--form {
+  font-size: 1.2em;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #737373;
+  }
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__languageWrapper__language--form {
+  margin-top: 0.3em;
+  width: 100px;
+  background: $secondaryBackgroundColor;
+  color: $primaryFontColor;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border: 2px solid $secondaryFontColor;
+}
+
+//********** maturity **********
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper--form {
+  margin-top: 1em;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__title--form {
+  font-size: 1.2em;
+  display: flex;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__selectWrapper--form {
+  display: flex;
+  flex-flow: column;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__select--form {
+  background: $tertiaryFontColor;
+  border: 2px solid $secondaryFontColor;
+  width: 200px;
+  color: $primaryFontColor;
+  text-transform: uppercase;
+  margin: 1em 0 1em 0;
+  padding-left: 0.5em;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__button--form {
+  margin-top: 1em;
+  width: 100px;
+  background: $secondaryBackgroundColor;
+  color: $primaryFontColor;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border: 2px solid $secondaryFontColor;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 400%;
+    height: 1px;
+    background: #737373;
+  }
+}
+
+//********** autoplay **********
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption--form {
+  margin-top: 1em;
+}
+
+.manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__title--form {
+  font-size: 1.2em;
+}
+
+//********** submit **********
+
+.manageProfileBody__main__title__form__submitButtons--form {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1em;
+  padding: 2em;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #737373;
+  }
+}
+
+.manageProfileBody__main__title__form__submitButtons__button--form {
+  margin-top: 1em;
+  background: $secondaryBackgroundColor;
+  color: $primaryFontColor;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border: 2px solid $secondaryFontColor;
+  cursor: pointer;
+  &:hover {
+    background: $primaryFontColor;
+    color: $secondaryBackgroundColor;
+    border:2px solid $primaryFontColor;
+    outline: none;
+  }
+}
+
+.editBtnA {
+  width: 70px;
+}
+
+.editBtnB {
+  width: 120px;
+}
+
+.editBtnC {
+  width: 220px;
 }

@@ -20,6 +20,24 @@ export class ProfilesManageComponent implements OnInit, OnDestroy {
   userId: string
   userData: User
   userProfiles: Profile[]
+  selectedProfile: Profile
+
+  isProfileSelected: boolean = false
+  selectProfile(id: string) {
+    this.isProfileSelected = true
+    this.userProfiles.find((profile) => {
+      if (profile._id === id) {
+        this.selectedProfile = profile
+      }
+    })
+  }
+  cancelProfileSelection() {
+    this.isProfileSelected = false
+  }
+
+  goToHome() {
+    this.router.navigate(['/browse'])
+  }
 
   ngOnInit() {
     this.dataSubscription = this.authService

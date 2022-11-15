@@ -8,14 +8,23 @@ const serverError = "Can't update user, please try again later"
 module.exports.userUpdateOne = async (req, res) => {
   try {
     const paramsId = req.params.id
-    const userObject = {
-      _id: paramsId,
-      email: req.body.email,
-      phoneNumber: req.body.phoneNumber,
-      postalAddress: req.body.postalAddress,
-      profiles: req.body.profiles,
-      isWebsiteAdmin: req.body.isWebsiteAdmin,
-    }
+    const userObject = req.file
+      ? {
+          profiles: {
+            profilePicture: `${req.protocol}://${req.get(
+              'host'
+            )}/uploads/images/${req.file.filename}`,
+          },
+        }
+      : { ...req.body }
+    // const userObject = {
+    //   _id: paramsId,
+    //   email: req.body.email,
+    //   phoneNumber: req.body.phoneNumber,
+    //   postalAddress: req.body.postalAddress,
+    //   profiles: req.body.profiles,
+    //   isWebsiteAdmin: req.body.isWebsiteAdmin,
+    // }
     await User.updateOne(
       { _id: paramsId },
       { ...userObject, _id: paramsId },
