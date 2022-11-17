@@ -59,4 +59,25 @@ export class AuthSignUpStep2Component implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.dataSubscription?.unsubscribe()
   }
+
+  editDefaultUser(id: string) {
+    if (this.userData) {
+      this.userData.profiles.forEach((data) => {
+        this.updatedData = [
+          {
+            ...data,
+            nickname: this.inputNickname,
+            isChild: this.inputIsChild,
+            isAccountAdmin: true,
+          },
+        ]
+      })
+      this.authService
+        .editConnectedUser(this.userId, this.updatedData)
+        ?.subscribe((updatedData) => {
+          if (updatedData) {
+          }
+        })
+    }
+  }
 }

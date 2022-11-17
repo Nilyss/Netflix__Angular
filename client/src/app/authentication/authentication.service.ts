@@ -72,6 +72,7 @@ export class AuthenticationService implements OnInit {
       isChild: boolean
       isAccountAdmin: boolean
     }
+
   ): Observable<User> | undefined {
     return this.http
       .put<User>(
@@ -103,7 +104,7 @@ export class AuthenticationService implements OnInit {
         catchError((error) => this.handleError(error, undefined))
       )
   }
-
+  
   // logs & errors
   private log(res: any) {
     console.log(res)
