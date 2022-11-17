@@ -62,6 +62,8 @@
   min-width: 200px;
   min-height: 200px;
   width: 200px;
+  height: 200px;
+  object-fit: cover;
   position: relative;
   top: 0;
   left: 0;
@@ -81,7 +83,9 @@
 }
 
 .manageProfileBody__main__title__ul__profiles__fig__avatar {
-  width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
   border-radius: 8px;
   border: 4px inset rgba(0, 0, 0, 0);
 }
@@ -158,11 +162,31 @@
 
 .manageProfileBody__main__title__form__wrapper__fig--form {
   width: 100px;
+  height: 100px;
   margin-right: 2em;
+  position: relative;
+  top: 0;
+}
+
+.manageProfileBody__main__title__form__wrapper__fig__inputFile--form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.manageProfileBody__main__title__form__wrapper__fig__editIcon--form {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  cursor: pointer;
 }
 
 .manageProfileBody__main__title__form__wrapper__fig__avatar--form {
-  width: 100%;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
 }
 
 //********** nickname **********

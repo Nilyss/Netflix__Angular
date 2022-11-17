@@ -55,10 +55,14 @@
 
 .homeUserModal__wrapper__nav__ul__nicknames__figure {
   width: 25px;
+  height: 25px;
+  object-fit: cover;
 }
 
 .homeUserModal__wrapper__nav__ul__nicknames__figure__img {
-  width: 100%;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
   border-radius: 4px;
 }
 

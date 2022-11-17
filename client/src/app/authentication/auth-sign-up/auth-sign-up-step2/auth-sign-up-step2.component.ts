@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../authentication.service'
 import { User } from '../../user'
 import { Router } from '@angular/router'
 import { switchMap, map, Subscription } from 'rxjs'
+import { Profile } from '../../../profiles/profile'
 
 @Component({
   selector: 'app-auth-sign-up-step2',
@@ -15,32 +16,24 @@ export class AuthSignUpStep2Component implements OnInit, OnDestroy {
   dataSubscription: Subscription | undefined
 
   inputNickname: string
-  inputIsChild: boolean
-
-  updatedData: [
-    {
-      _id: string
-      nickname: string
-      profilePicture: string
-      isChild: boolean
-      isAccountAdmin: boolean
-    }
-  ]
+  inputIsChild: boolean = false
+  formData: FormData
 
   editDefaultUser(id: string) {
     if (this.userData) {
       this.userData.profiles.forEach((data) => {
-        this.updatedData = [
-          {
-            ...data,
-            nickname: this.inputNickname,
-            isChild: this.inputIsChild,
-            isAccountAdmin: true,
-          },
-        ]
+        this.formData = new FormData()
+        this.formData.append('_id', this.userId)
+        this.formData.append('nickname', this.inputNickname)
+        this.formData.append('profilePicture', data.profilePicture)
+        this.formData.append('isChild', JSON.stringify(this.inputIsChild))
+        this.formData.append(
+          'isAccountAdmin',
+          JSON.stringify(data.isAccountAdmin)
+        )
       })
       this.dataSubscription = this.authService
-        .editConnectedUser(this.userId, this.updatedData)
+        .editProfile(this.userId, this.formData)
         ?.subscribe((updatedData) => {
           if (updatedData) {
             this.router.navigate(['browse'])

@@ -36,8 +36,11 @@
         </li>
       </ul>
       <button
-        (click)='goToHome()'
-        class="manageProfileBody__main__title__submit">Done</button>
+        (click)="goToHome()"
+        class="manageProfileBody__main__title__submit"
+      >
+        Done
+      </button>
     </div>
 
     <!-- Edition form -->
@@ -47,12 +50,32 @@
       *ngIf="isProfileSelected === true"
     >
       <h1 class="manageProfileBody__main__title--form">Manage Profiles</h1>
-      <form class="manageProfileBody__main__title__form--form">
-        <div class="manageProfileBody__main__title__form__wrapper--form">
+      <form
+        [formGroup]="updateForm"
+        (ngSubmit)="submitUpdateForm()"
+        class="manageProfileBody__main__title__form--form"
+      >
+        <div
+          class="form-group manageProfileBody__main__title__form__wrapper--form"
+        >
           <figure
             class="manageProfileBody__main__title__form__wrapper__fig--form"
           >
+            <span
+              (click)="imageInput.click()"
+              class="manageProfileBody__main__title__form__wrapper__fig__editIcon--form material-symbols-outlined"
+              >edit</span
+            >
+            <input
+              class="manageProfileBody__main__title__form__wrapper__fig__inputFile--form"
+              accept="image/*"
+              type="file"
+              name='profilePicture'
+              #imageInput
+              (change)="onFileAdded($event)"
+            />
             <img
+              (click)="imageInput.click()"
               class="manageProfileBody__main__title__form__wrapper__fig__avatar--form"
               src="{{ selectedProfile.profilePicture }}"
             />
@@ -61,12 +84,15 @@
           <!-- nickname part -->
 
           <div
-            class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper--form"
+            class="form-group manageProfileBody__main__title__form__wrapper__body__nicknameWrapper--form"
           >
             <input
               class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__input--form"
               type="text"
-              placeholder="{{ selectedProfile.nickname }}"
+              name="nickname"
+              formControlName="nickname"
+              placeholder='{{this.nickname}}'
+              (change)="onNicknameChange($event)"
             />
 
             <!-- language part -->
@@ -96,7 +122,9 @@
               >
                 Maturity Settings:
               </h2>
-              <div class='manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__selectWrapper--form'>
+              <div
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__selectWrapper--form"
+              >
                 <input
                   class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__select--form"
                   placeholder="All maturity ratings"
@@ -160,12 +188,13 @@
 
         <div class="manageProfileBody__main__title__form__submitButtons--form">
           <button
+            type="submit"
             class="manageProfileBody__main__title__form__submitButtons__button--form editBtnA"
           >
             Save
           </button>
           <button
-            (click)='cancelProfileSelection()'
+            (click)="cancelProfileSelection()"
             class="manageProfileBody__main__title__form__submitButtons__button--form editBtnB"
           >
             Cancel
