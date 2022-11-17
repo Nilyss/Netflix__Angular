@@ -1,0 +1,211 @@
+<body>
+  <main class="manageProfileBody" *ngIf="userData">
+    <div class="manageProfileBody__main" *ngIf="isProfileSelected === false">
+      <h1 class="manageProfileBody__main__title">Manage Profiles:</h1>
+      <ul class="manageProfileBody__main__title__ul">
+        <li
+          *ngFor="let profile of userProfiles"
+          (click)="selectProfile(profile._id)"
+          class="manageProfileBody__main__title__ul__profiles"
+        >
+          <figure class="manageProfileBody__main__title__ul__profiles__fig">
+            <span
+              class="manageProfileBody__main__title__ul__profiles__fig__icon material-symbols-outlined"
+              >edit</span
+            >
+            <img
+              class="manageProfileBody__main__title__ul__profiles__fig__avatar"
+              src="{{ profile.profilePicture }}"
+            />
+          </figure>
+          <h2 class="manageProfileBody__main__title__ul__profiles__nickname">
+            {{ profile.nickname }}
+          </h2>
+        </li>
+        <li class="manageProfileBody__main__title__ul__profiles">
+          <div class="manageProfileBody__main__title__ul__profiles__addProfile">
+            <p
+              class="manageProfileBody__main__title__ul__profiles__fig__logo material-symbols-outlined"
+            >
+              add_circle
+            </p>
+          </div>
+          <h2 class="manageProfileBody__main__title__ul__profiles__nickname">
+            Add profile
+          </h2>
+        </li>
+      </ul>
+      <button
+        (click)="goToHome()"
+        class="manageProfileBody__main__title__submit"
+      >
+        Done
+      </button>
+    </div>
+
+    <!-- Edition form -->
+
+    <div
+      class="manageProfileBody__main--form"
+      *ngIf="isProfileSelected === true"
+    >
+      <h1 class="manageProfileBody__main__title--form">Manage Profiles</h1>
+      <form
+        [formGroup]="updateForm"
+        (ngSubmit)="submitUpdateForm()"
+        class="manageProfileBody__main__title__form--form"
+      >
+        <div
+          class="form-group manageProfileBody__main__title__form__wrapper--form"
+        >
+          <figure
+            class="manageProfileBody__main__title__form__wrapper__fig--form"
+          >
+            <span
+              (click)="imageInput.click()"
+              class="manageProfileBody__main__title__form__wrapper__fig__editIcon--form material-symbols-outlined"
+              >edit</span
+            >
+            <input
+              class="manageProfileBody__main__title__form__wrapper__fig__inputFile--form"
+              accept="image/*"
+              type="file"
+              name='profilePicture'
+              #imageInput
+              (change)="onFileAdded($event)"
+            />
+            <img
+              (click)="imageInput.click()"
+              class="manageProfileBody__main__title__form__wrapper__fig__avatar--form"
+              src="{{ selectedProfile.profilePicture }}"
+            />
+          </figure>
+
+          <!-- nickname part -->
+
+          <div
+            class="form-group manageProfileBody__main__title__form__wrapper__body__nicknameWrapper--form"
+          >
+            <input
+              class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__input--form"
+              type="text"
+              name="nickname"
+              formControlName="nickname"
+              placeholder='{{this.nickname}}'
+              (change)="onNicknameChange($event)"
+            />
+
+            <!-- language part -->
+
+            <div
+              class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__languageWrapper--form"
+            >
+              <h2
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__languageWrapper__title--form"
+              >
+                Language:
+              </h2>
+              <input
+                type="text"
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__languageWrapper__language--form"
+                placeholder="English"
+              />
+            </div>
+
+            <!-- maturity part -->
+
+            <div
+              class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper--form"
+            >
+              <h2
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__title--form"
+              >
+                Maturity Settings:
+              </h2>
+              <div
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__selectWrapper--form"
+              >
+                <input
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__select--form"
+                  placeholder="All maturity ratings"
+                />
+                <label
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__label--form"
+                  >Show titles of all maturity ratings for this profile.</label
+                >
+              </div>
+              <button
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__maturityWrapper__button--form"
+              >
+                Edit
+              </button>
+            </div>
+
+            <!-- autoplay part 1 -->
+
+            <div
+              class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption--form"
+            >
+              <h2
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__title--form"
+              >
+                Autoplay controls
+              </h2>
+              <div
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper--form"
+              >
+                <input
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper__checkbox--form"
+                  type="checkbox"
+                />
+                <label
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper__label--form"
+                >
+                  Autoplay next episode in a series on all devices.</label
+                >
+              </div>
+
+              <!-- autoplay part 2 -->
+
+              <div
+                class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper--form"
+              >
+                <input
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper__checkbox--form"
+                  type="checkbox"
+                />
+                <label
+                  class="manageProfileBody__main__title__form__wrapper__body__nicknameWrapper__autoplayOption__checkboxWrapper__label--form"
+                >
+                  Autoplay previews while browsing on all devices.</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- submit form -->
+
+        <div class="manageProfileBody__main__title__form__submitButtons--form">
+          <button
+            type="submit"
+            class="manageProfileBody__main__title__form__submitButtons__button--form editBtnA"
+          >
+            Save
+          </button>
+          <button
+            (click)="cancelProfileSelection()"
+            class="manageProfileBody__main__title__form__submitButtons__button--form editBtnB"
+          >
+            Cancel
+          </button>
+          <button
+            class="manageProfileBody__main__title__form__submitButtons__button--form editBtnC"
+          >
+            Delete profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>

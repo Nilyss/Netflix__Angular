@@ -6,6 +6,8 @@ import { RouterOutlet } from '@angular/router'
 // Modules
 import { AppRoutingModule } from './app-routing.module'
 import { AuthenticationModule } from './authentication/authentication.module'
+import { HomeModule } from './home/home.module'
+import { ProfilesModule } from './profiles/profiles.module'
 
 // http Request
 
@@ -15,6 +17,8 @@ import { AuthenticationModule } from './authentication/authentication.module'
     BrowserModule,
     RouterOutlet,
     AuthenticationModule,
+    HomeModule,
+    ProfilesModule,
     AppRoutingModule,
   ],
   providers: [],

@@ -1,6 +1,7 @@
 const {
   isValidUser,
 } = require('../../middleware/authentication/authentication')
+const multer = require('../../middleware/multer/multer.config')
 
 const router = require('express').Router()
 
@@ -19,7 +20,7 @@ router.post(baseRoute + '/login', userLogin)
 router.get(baseRoute + '/logout', userLogout)
 router.get(baseRoute + '/', userFindAll)
 router.get(baseRoute + '/:id', userFindOne)
-router.put(baseRoute + '/update/:id', isValidUser, userUpdateOne)
+router.put(baseRoute + '/update/:id', isValidUser, multer, userUpdateOne)
 router.delete(baseRoute + '/delete/:id', isValidUser, userDeleteOne)
 
 module.exports = router

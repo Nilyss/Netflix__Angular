@@ -7,7 +7,7 @@ const cors = require('cors') // cross origin request  https://www.npmjs.com/pack
 const corsOptions = {
   origin: 'http://localhost:4200',
   credentials: true,
-  allowedHeaders: ['sessionId', 'Content-Type'],
+  allowedHeaders: ['sessionId', 'Content-Type', 'enctype'],
   exposedHeaders: ['sessionId'],
   methods: 'GET,HEAD,PUT,POST,DELETE',
   preflightContinue: false,
@@ -17,6 +17,7 @@ const {
   isValidUser,
 } = require('./middleware/authentication/authentication')
 const userRoute = require('./routes/user/user')
+const path = require('path')
 
 port = parseInt(process.env.PORT, 10) || 8800
 baseUrl = process.env.BASE_URL + port + '/api'
@@ -40,6 +41,7 @@ app
   .get('/api/jwtid', isAccessGranted)
   // Routes
   .use(userRoute)
+  .use('/uploads/images', express.static(path.join('uploads/images')))
 
 // starting app
 app.listen(port, () =>

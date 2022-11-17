@@ -1,0 +1,36 @@
+<div class="homeUserModal">
+  <span class='homeUserModal__arrow_drop_down material-symbols-outlined'>arrow_drop_up</span>
+  <div class="homeUserModal__wrapper">
+    <nav class="homeUserModal__wrapper__nav" *ngIf="userProfiles">
+      <ul
+        *ngFor="let profile of userProfiles"
+        class="homeUserModal__wrapper__nav__ul"
+      >
+        <li class="homeUserModal__wrapper__nav__ul__nicknames">
+          <figure class="homeUserModal__wrapper__nav__ul__nicknames__figure">
+            <img
+              class="homeUserModal__wrapper__nav__ul__nicknames__figure__img"
+              src="{{ profile.profilePicture }}"
+              alt="profile"
+            />
+          </figure>
+          <p
+            class="homeUserModal__wrapper__nav__ul__nicknames__figure__img__text"
+          >
+            {{ profile.nickname }}
+          </p>
+        </li>
+      </ul>
+      <ul class="homeUserModal__wrapper__nav__ul">
+        <li
+          (click)='goToProfiles()'
+          class="homeUserModal__wrapper__nav__ul__link"><span class='material-symbols-outlined'>edit</span>Manage profiles</li>
+        <li class="homeUserModal__wrapper__nav__ul__link"><span class='material-symbols-outlined'>person</span>Account</li>
+        <li class="homeUserModal__wrapper__nav__ul__link"><span class='material-symbols-outlined'>help</span>Help center</li>
+      </ul>
+    </nav>
+    <button (click)="logout()" class="homeUserModal__wrapper__button">
+      Sign out of Netflix
+    </button>
+  </div>
+</div>
