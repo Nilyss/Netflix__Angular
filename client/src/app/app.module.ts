@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AuthenticationModule } from './authentication/authentication.module'
 import { HomeModule } from './home/home.module'
 import { ProfilesModule } from './profiles/profiles.module'
+import { VideosModule } from './videos/videos.module'
 
 // http Request
 @NgModule({
@@ -18,6 +19,7 @@ import { ProfilesModule } from './profiles/profiles.module'
     AuthenticationModule,
     HomeModule,
     ProfilesModule,
+    VideosModule,
     AppRoutingModule,
   ],
   providers: [],

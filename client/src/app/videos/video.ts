@@ -1,4 +1,4 @@
-export class Videos {
+export class Video {
   page: number
   results: [
     {

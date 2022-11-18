@@ -11,10 +11,9 @@
       <ul class="homeSearchBody__main__wrapper__ul">
         <li
           *ngFor="let video of videos"
+          (click)="goToRequestVideo(video.id, video.media_type)"
           class="homeSearchBody__main__wrapper__ul__elements"
-          title="{{ video.name }}{{ video.title }}        {{
-            video.media_type
-          }}"
+          title="{{ video.name }}{{ video.title }}  {{ video.media_type }}"
         >
           <figure class="homeSearchBody__main__wrapper__ul__elements__fig">
             <img
@@ -27,5 +26,5 @@
       </ul>
     </div>
   </main>
-<app-home-footer></app-home-footer>
+  <app-home-footer></app-home-footer>
 </body>

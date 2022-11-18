@@ -1,4 +1,4 @@
-<header *ngIf="userData !== undefined" class="homeHeader">
+<header class="homeHeader">
   <figure class="homeHeader__fig">
     <img
       (click)="goToAuth()"
@@ -71,6 +71,7 @@
       </li>
       <li
         (mouseenter)="isShowProfileModal = true"
+        *ngIf='profile'
         class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right"
       >
         <img
