@@ -7,10 +7,10 @@
       alt="logo"
     />
   </figure>
-  <nav  class="homeHeader__nav">
+  <nav class="homeHeader__nav">
     <ul class="homeHeader__nav__ul homeHeader__nav__ul--left">
       <li
-        routerLink="/authentication"
+        (click)="goToHome()"
         class="homeHeader__nav__ul__li homeHeader__nav__ul__li--left"
       >
         Home
@@ -34,6 +34,7 @@
     <ul class="homeHeader__nav__ul homeHeader__nav__ul--right">
       <li class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
         <form
+          #searchForMovie="ngForm"
           [ngClass]="
             isShowSearchBar === false
               ? 'homeHeader__nav__ul__li__searchForm--false'
@@ -57,6 +58,8 @@
             name="searchForVideos"
             id="searchForVideos"
             placeholder="Title, Person, Type"
+            [(ngModel)]="searchVideoValue"
+            (change)="sendParamsInputValue()"
           />
         </form>
       </li>
@@ -67,8 +70,9 @@
         <span class="material-symbols-outlined"> notifications </span>
       </li>
       <li
-        (mouseenter)='isShowProfileModal = true'
-        class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right">
+        (mouseenter)="isShowProfileModal = true"
+        class="homeHeader__nav__ul__li homeHeader__nav__ul__li--right"
+      >
         <img
           class="homeHeader__nav__ul__li--right__avatar"
           src="{{ profile[0].profilePicture }}"
@@ -83,7 +87,8 @@
   </nav>
 </header>
 <div
-  (mouseleave)='isShowProfileModal = false'
-  *ngIf='isShowProfileModal === true'>
+  (mouseleave)="isShowProfileModal = false"
+  *ngIf="isShowProfileModal === true"
+>
   <app-home-user-modal></app-home-user-modal>
 </div>

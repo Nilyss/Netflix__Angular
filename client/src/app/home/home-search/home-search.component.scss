@@ -1,0 +1,34 @@
+@import '../../../utils/styles/variables';
+@import '../../../utils/styles/keyframes';
+
+.homeSearchBody {
+  background: $secondaryBackgroundColor;
+}
+
+.homeSearchBody__main {
+  width: 100%;
+  min-height: 100vw;
+}
+.homeSearchBody__main__wrapper__ul {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.homeSearchBody__main__wrapper__ul__elements {
+  color: $primaryFontColor;
+  list-style: none;
+  font-size: .6em;
+  text-align: center;
+}
+
+.homeSearchBody__main__wrapper__ul__elements__fig {
+  width: 200px;
+  object-fit: cover;
+}
+
+.homeSearchBody__main__wrapper__ul__elements__fig__poster {
+  width: 100%;
+}

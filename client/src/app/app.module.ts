@@ -10,7 +10,6 @@ import { HomeModule } from './home/home.module'
 import { ProfilesModule } from './profiles/profiles.module'
 
 // http Request
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

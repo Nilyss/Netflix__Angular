@@ -3,7 +3,6 @@ import { AuthenticationService } from '../../authentication.service'
 import { User } from '../../user'
 import { Router } from '@angular/router'
 import { switchMap, map, Subscription } from 'rxjs'
-import { Profile } from '../../../profiles/profile'
 
 @Component({
   selector: 'app-auth-sign-up-step2',
@@ -46,6 +45,7 @@ export class AuthSignUpStep2Component implements OnInit, OnDestroy {
     private authService: AuthenticationService,
     private router: Router
   ) {}
+
   ngOnInit() {
     this.dataSubscription = this.authService
       .getConnectedUserId()
@@ -58,26 +58,5 @@ export class AuthSignUpStep2Component implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.dataSubscription?.unsubscribe()
-  }
-
-  editDefaultUser(id: string) {
-    if (this.userData) {
-      this.userData.profiles.forEach((data) => {
-        this.updatedData = [
-          {
-            ...data,
-            nickname: this.inputNickname,
-            isChild: this.inputIsChild,
-            isAccountAdmin: true,
-          },
-        ]
-      })
-      this.authService
-        .editConnectedUser(this.userId, this.updatedData)
-        ?.subscribe((updatedData) => {
-          if (updatedData) {
-          }
-        })
-    }
   }
 }
