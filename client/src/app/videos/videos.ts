@@ -23,10 +23,12 @@ export class Videos {
       spoken_languages: []
       status: string
       tagline: string
+      name: string
       title: string
       video: boolean
       vote_average: number
       vot_count: number
+      media_type: string
     }
   ]
 
@@ -55,10 +57,12 @@ export class Videos {
         spoken_languages: []
         status: string
         tagline: string
+        name: string
         title: string
         video: boolean
         vote_average: number
         vot_count: number
+        media_type: string
       }
     ]
   ) {

@@ -1,22 +1,31 @@
 <body class="homeSearchBody">
   <app-home-header (change)="getRequestVideo()"></app-home-header>
   <main *ngIf="videos" class="homeSearchBody__main">
+    <p *ngIf="queryValue.length > 0" class="homeSearchBody__main__searchName">
+      Result for :
+      <span class="homeSearchBody__main__searchName--queryValue">{{
+        queryValue
+      }}</span>
+    </p>
     <div class="homeSearchBody__main__wrapper">
       <ul class="homeSearchBody__main__wrapper__ul">
         <li
           *ngFor="let video of videos"
           class="homeSearchBody__main__wrapper__ul__elements"
+          title="{{ video.name }}{{ video.title }}        {{
+            video.media_type
+          }}"
         >
           <figure class="homeSearchBody__main__wrapper__ul__elements__fig">
             <img
               class="homeSearchBody__main__wrapper__ul__elements__fig__poster"
               src="{{ baseImagePath + video.poster_path }}"
-              alt="{{ video.title }}"
+              alt="{{ video.name }} {{ video.title }}"
             />
           </figure>
         </li>
       </ul>
     </div>
   </main>
-  <footer></footer>
+<app-home-footer></app-home-footer>
 </body>

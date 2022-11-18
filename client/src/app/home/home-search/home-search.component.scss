@@ -7,8 +7,21 @@
 
 .homeSearchBody__main {
   width: 100%;
-  min-height: 100vw;
+  min-height: 60vw;
 }
+
+.homeSearchBody__main__searchName {
+  font-size: 1.5em;
+  padding: 4em 4em 0 2em;
+  margin-bottom: -1em;
+  color: $secondaryFontColor;
+}
+
+.homeSearchBody__main__searchName--queryValue {
+  color: $primaryFontColor;
+  text-transform: capitalize;
+}
+
 .homeSearchBody__main__wrapper__ul {
   display: flex;
   flex-flow: wrap;
@@ -18,10 +31,12 @@
 }
 
 .homeSearchBody__main__wrapper__ul__elements {
+  margin-top: 50px;
   color: $primaryFontColor;
   list-style: none;
   font-size: .6em;
   text-align: center;
+  cursor: pointer;
 }
 
 .homeSearchBody__main__wrapper__ul__elements__fig {
@@ -31,4 +46,5 @@
 
 .homeSearchBody__main__wrapper__ul__elements__fig__poster {
   width: 100%;
+  border-radius: 8px;
 }

@@ -36,7 +36,7 @@ export class HomeSearchComponent implements OnInit, OnDestroy {
     this.dataSubscription = this.route.queryParams
       .pipe(
         map((params) => {
-          this.queryValue = params['query']
+          this.queryValue = params['searchfor']
         }),
         tap(() => console.log(this.queryValue))
       )

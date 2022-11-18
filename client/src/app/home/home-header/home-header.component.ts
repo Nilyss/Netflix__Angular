@@ -35,8 +35,8 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
 
   sendParamsInputValue() {
     this.dataSubscription = this.route.params.subscribe(() => {
-      return this.router.navigate(['browse/search/query'], {
-        queryParams: { query: this.searchVideoValue },
+      return this.router.navigate(['browse/search?searchfor'], {
+        queryParams: { searchfor: this.searchVideoValue },
       })
     })
   }
