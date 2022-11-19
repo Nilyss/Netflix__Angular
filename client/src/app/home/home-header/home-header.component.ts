@@ -25,10 +25,6 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
     this.isShowSearchBar = !this.isShowSearchBar
   }
 
-  goToAuth() {
-    return this.router.navigate(['fr-en'])
-  }
-
   goToHome() {
     return this.router.navigate(['browse'])
   }

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable, tap, catchError, of, map } from 'rxjs'
 import { Video } from './video'
 import { TvShow } from './tvShow'
 import { Movie } from './movie'
+import { Person } from './person'
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class VideosService {
   getVideosBySearch(query: string): Observable<Video['results']> {
     return this.http
       .get<Video['results']>(
-        `https://api.themoviedb.org/3/search/multi?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US&query=${query}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/multi?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US&query=${query}&page=1&include_adult=true`
       )
       .pipe(
         map((data) => data['results']),
@@ -40,6 +41,19 @@ export class VideosService {
     return this.http
       .get<Movie>(
         ` https://api.themoviedb.org/3/movie/${movieId}?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US`
+      )
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+
+  getPersonById(personId: string): Observable<Person> {
+    return this.http
+      .get<Person>(
+        `https://api.themoviedb.org/3/person/${personId}?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US`
       )
       .pipe(
         tap((res) => {

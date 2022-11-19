@@ -29,6 +29,7 @@ export class Video {
       vote_average: number
       vot_count: number
       media_type: string
+      profile_path: string
     }
   ]
 
@@ -63,6 +64,7 @@ export class Video {
         vote_average: number
         vot_count: number
         media_type: string
+        profile_path: string
       }
     ]
   ) {

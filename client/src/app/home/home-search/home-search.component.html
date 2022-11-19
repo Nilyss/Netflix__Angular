@@ -11,14 +11,21 @@
       <ul class="homeSearchBody__main__wrapper__ul">
         <li
           *ngFor="let video of videos"
-          (click)="goToRequestVideo(video.id, video.media_type)"
+          (click)="goToRequestMedia(video.id, video.media_type)"
           class="homeSearchBody__main__wrapper__ul__elements"
-          title="{{ video.name }}{{ video.title }}  {{ video.media_type }}"
+          title="{{ video.name }}{{ video.title }} {{ video.media_type }}"
         >
           <figure class="homeSearchBody__main__wrapper__ul__elements__fig">
             <img
+              *ngIf='video.poster_path'
               class="homeSearchBody__main__wrapper__ul__elements__fig__poster"
               src="{{ baseImagePath + video.poster_path }}"
+              alt="{{ video.name }} {{ video.title }}"
+            />
+            <img
+              *ngIf='video.profile_path'
+              class="homeSearchBody__main__wrapper__ul__elements__fig__poster"
+              src="{{ baseImagePath + video.profile_path }}"
               alt="{{ video.name }} {{ video.title }}"
             />
           </figure>

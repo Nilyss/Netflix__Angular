@@ -40,11 +40,13 @@
 }
 
 .homeSearchBody__main__wrapper__ul__elements__fig {
-  width: 200px;
+  max-width: 200px;
+  min-width: 200px;
   object-fit: cover;
 }
 
 .homeSearchBody__main__wrapper__ul__elements__fig__poster {
-  width: 100%;
+  width: 200px;
+  min-height: 100%;
   border-radius: 8px;
 }

@@ -26,11 +26,11 @@ export class HomeSearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  goToRequestVideo(videoId: number, media_type: string) {
+  goToRequestMedia(mediaId: number, media_type: string) {
     return this.router.navigate(
-      [`videos/details/?id=${videoId}?mediatype=${media_type}`],
+      [`videos/details/?id=${mediaId}?mediatype=${media_type}`],
       {
-        queryParams: { id: videoId, media_type: media_type },
+        queryParams: { id: mediaId, media_type: media_type },
       }
     )
   }

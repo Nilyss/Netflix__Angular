@@ -3,7 +3,11 @@ export class Movie {
   backdrop_path: string | null
   belongs_to_collection: null | {}
   budget: number
-  genres: [{}]
+  genres: [
+    {
+      name: string
+    }
+  ]
   homepage: string | null
   id: number
   imdb_id: string | null
@@ -13,7 +17,11 @@ export class Movie {
   popularity: number
   poster_path: string | null
   production_companies: [{}]
-  production_countries: [{}]
+  production_countries: [
+    {
+      name: string
+    }
+  ]
   release_date: string
   revenue: number
   runtime: number | null
@@ -30,7 +38,11 @@ export class Movie {
     backdrop_path: string | null,
     belongs_to_collection: null | {},
     budget: number,
-    genres: [{}],
+    genres: [
+      {
+        name: string
+      }
+    ],
     homepage: string | null,
     id: number,
     imdb_id: string | null,
@@ -40,7 +52,11 @@ export class Movie {
     popularity: number,
     poster_path: string | null,
     production_companies: [{}],
-    production_countries: [{}],
+    production_countries: [
+      {
+        name: string
+      }
+    ],
     release_date: string,
     revenue: number,
     runtime: number | null,

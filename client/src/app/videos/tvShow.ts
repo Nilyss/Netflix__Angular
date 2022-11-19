@@ -3,7 +3,11 @@ export class TvShow {
   created_by: [{}]
   episode_run_time: [number]
   first_air_date: string
-  genres: [{}]
+  genres: [
+    {
+      name: string
+    }
+  ]
   homepage: string
   id: number
   in_production: boolean
@@ -36,7 +40,11 @@ export class TvShow {
     created_by: [{}],
     episode_run_time: [number],
     first_air_date: string,
-    genres: [{}],
+    genres: [
+      {
+        name: string
+      }
+    ],
     homepage: string,
     id: number,
     in_production: boolean,

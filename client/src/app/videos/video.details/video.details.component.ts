@@ -4,6 +4,7 @@ import { VideosService } from '../videos.service'
 import { map, Subscription } from 'rxjs'
 import { TvShow } from '../tvShow'
 import { Movie } from '../movie'
+import { Person } from '../person'
 
 @Component({
   selector: 'app-video.details',
@@ -16,14 +17,19 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
   queryParamsMediaType: string
   tvShow: TvShow
   movie: Movie
+  person: Person
+  voteAverage: string
   baseImagePath: string = 'https://image.tmdb.org/t/p/w500'
+  isAdultMedia: boolean
+  genre: number
+  genreName: string
 
   getRequestedTvShow() {
     this.dataSubscription = this.videoService
       .getTvShowById(this.queryParamsId)
       .subscribe((tvShowDetails) => {
         this.tvShow = tvShowDetails
-        console.log('this.tvShow =>', this.tvShow)
+        this.voteAverage = tvShowDetails.vote_average.toFixed(2)
       })
   }
 
@@ -32,7 +38,24 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
       .getMovieById(this.queryParamsId)
       .subscribe((movieDetails) => {
         this.movie = movieDetails
-        console.log('this.movie =>', this.movie)
+        this.isAdultMedia = movieDetails.adult
+        this.voteAverage = movieDetails.vote_average.toFixed(2)
+      })
+  }
+
+  getRequestedPerson() {
+    this.dataSubscription = this.videoService
+      .getPersonById(this.queryParamsId)
+      .subscribe((personDetails) => {
+        this.person = personDetails
+        this.isAdultMedia = personDetails.adult
+        this.genre = personDetails.gender
+        if (this.genre === 1) {
+          this.genreName = 'Feminine'
+        }
+        if (this.genre === 2) {
+          this.genreName = 'Masculine'
+        }
       })
   }
 
@@ -56,6 +79,9 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
     }
     if (this.queryParamsMediaType === 'movie') {
       this.getRequestedMovie()
+    }
+    if (this.queryParamsMediaType === 'person') {
+      this.getRequestedPerson()
     }
   }
 
