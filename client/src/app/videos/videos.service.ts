@@ -5,6 +5,7 @@ import { Video } from './video'
 import { TvShow } from './tvShow'
 import { Movie } from './movie'
 import { Person } from './person'
+import { Trailer } from './trailer'
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class VideosService {
   getVideosBySearch(query: string): Observable<Video['results']> {
     return this.http
       .get<Video['results']>(
-        `https://api.themoviedb.org/3/search/multi?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US&query=${query}&page=1&include_adult=true`
+        `https://api.themoviedb.org/3/search/multi?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US&query=${query}&page=1&include_adult=false`
       )
       .pipe(
         map((data) => data['results']),
@@ -37,10 +38,36 @@ export class VideosService {
       )
   }
 
+  getTvShowVideosById(tvShowId: string): Observable<Trailer> {
+    return this.http
+      .get<Trailer>(
+        ` https://api.themoviedb.org/3/tv/${tvShowId}/videos?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US`
+      )
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+
   getMovieById(movieId: string): Observable<Movie> {
     return this.http
       .get<Movie>(
         ` https://api.themoviedb.org/3/movie/${movieId}?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US`
+      )
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+
+  getMovieVideosById(movieId: string): Observable<Trailer> {
+    return this.http
+      .get<Trailer>(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=e480c5de18e4c27893ea37f46f0af505&language=en-US`
       )
       .pipe(
         tap((res) => {

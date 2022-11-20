@@ -16,12 +16,16 @@
         </p>
       </div>
       <div class="videoDetailsBody__main__wrapper__cardWrapper">
-        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
-          <img
-            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
-            src="{{ baseImagePath + tvShow.poster_path }}"
-          />
-        </figure>
+        <div
+          *ngIf="tvShowVideo.length > 0"
+          class="videoDetailsBody__main__wrapper__cardWrapper__trailer"
+        >
+          <iframe
+            class="videoDetailsBody__main__wrapper__cardWrapper__trailer__iframe"
+            [src]="safeUrl"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="videoDetailsBody__main__wrapper__cardWrapper__body">
           <h2
             *ngIf="tvShow.overview"
@@ -165,6 +169,12 @@
             </li>
           </ul>
         </div>
+        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
+          <img
+            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
+            src="{{ baseImagePath + tvShow.poster_path }}"
+          />
+        </figure>
       </div>
     </div>
 
@@ -188,12 +198,16 @@
         </p>
       </div>
       <div class="videoDetailsBody__main__wrapper__cardWrapper">
-        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
-          <img
-            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
-            src="{{ baseImagePath + movie.poster_path }}"
-          />
-        </figure>
+        <div
+          *ngIf="movieVideo.length > 0"
+          class="videoDetailsBody__main__wrapper__cardWrapper__trailer"
+        >
+          <iframe
+            class="videoDetailsBody__main__wrapper__cardWrapper__trailer__iframe"
+            [src]="safeUrl"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="videoDetailsBody__main__wrapper__cardWrapper__body">
           <h2
             *ngIf="movie.overview"
@@ -253,15 +267,18 @@
               </p>
             </li>
             <li
-              *ngIf='movie.original_title'
+              *ngIf="movie.original_title"
               class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
             >
               <label
                 class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
-              >Original title :</label>
+                >Original title :</label
+              >
               <p
                 class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
-              >{{movie.original_title}}</p>
+              >
+                {{ movie.original_title }}
+              </p>
             </li>
             <li
               *ngIf="movie.vote_count"
@@ -321,6 +338,12 @@
             </li>
           </ul>
         </div>
+        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
+          <img
+            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
+            src="{{ baseImagePath + movie.poster_path }}"
+          />
+        </figure>
       </div>
     </div>
     <!-- Person template -->
