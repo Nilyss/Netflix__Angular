@@ -1,0 +1,509 @@
+<body class="videoDetailsBody">
+  <app-home-header></app-home-header>
+  <main class="videoDetailsBody__main">
+    <!-- Tv show template -->
+
+    <div *ngIf="tvShow" class="videoDetailsBody__main__wrapper">
+      <div class="videoDetailsBody__main__wrapper__titleWrapper">
+        <h1 class="videoDetailsBody__main__wrapper__titleWrapper__title">
+          {{ tvShow.name }}
+        </h1>
+        <p
+          *ngIf="tvShow.tagline"
+          class="videoDetailsBody__main__wrapper__titleWrapper__tagline"
+        >
+          {{ tvShow.tagline }}
+        </p>
+      </div>
+      <div class="videoDetailsBody__main__wrapper__cardWrapper">
+        <div
+          *ngIf="tvShowVideo.length > 0"
+          class="videoDetailsBody__main__wrapper__cardWrapper__trailer"
+        >
+          <iframe
+            class="videoDetailsBody__main__wrapper__cardWrapper__trailer__iframe"
+            [src]="safeUrl"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="videoDetailsBody__main__wrapper__cardWrapper__body">
+          <h2
+            *ngIf="tvShow.overview"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__subtitleOverview"
+          >
+            Overview:
+          </h2>
+          <p
+            *ngIf="tvShow.overview"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__overview"
+          >
+            {{ tvShow.overview }}
+          </p>
+          <ul class="videoDetailsBody__main__wrapper__cardWrapper__body__ul">
+            <li
+              *ngIf="tvShow.number_of_seasons"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Number of seasons :</label
+              >
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.number_of_seasons }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.number_of_episodes"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Number of episodes :</label
+              >
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.number_of_episodes }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.episode_run_time"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Episode run time :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.episode_run_time }} minutes
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.genres.length > 0"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Genre :
+              </label>
+              <p
+                *ngFor="let genre of tvShow.genres"
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ genre.name }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.origin_country"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Origin country :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.origin_country }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.status"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Status :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.status }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.vote_count"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Vote Count :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ tvShow.vote_count }}
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.vote_average"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Vote average :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ voteAverage }} / 10
+              </p>
+            </li>
+            <li
+              *ngIf="tvShow.homepage"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Home page :</label
+              >
+              <a
+                href="{{ tvShow.homepage }}"
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+                >{{ tvShow.homepage }}</a
+              >
+            </li>
+          </ul>
+        </div>
+        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
+          <img
+            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
+            src="{{ baseImagePath + tvShow.poster_path }}"
+          />
+        </figure>
+      </div>
+    </div>
+
+    <!-- Movie template -->
+    <div *ngIf="movie" class="videoDetailsBody__main__wrapper">
+      <div class="videoDetailsBody__main__wrapper__titleWrapper">
+        <h1 class="videoDetailsBody__main__wrapper__titleWrapper__title">
+          {{ movie.title }}
+        </h1>
+        <p
+          *ngIf="isAdultMedia"
+          class="videoDetailsBody__main__wrapper__titleWrapper__tagline"
+        >
+          18+ years old content
+        </p>
+        <p
+          *ngIf="movie.tagline"
+          class="videoDetailsBody__main__wrapper__titleWrapper__tagline"
+        >
+          {{ movie.tagline }}
+        </p>
+      </div>
+      <div class="videoDetailsBody__main__wrapper__cardWrapper">
+        <div
+          *ngIf="movieVideo.length > 0"
+          class="videoDetailsBody__main__wrapper__cardWrapper__trailer"
+        >
+          <iframe
+            class="videoDetailsBody__main__wrapper__cardWrapper__trailer__iframe"
+            [src]="safeUrl"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="videoDetailsBody__main__wrapper__cardWrapper__body">
+          <h2
+            *ngIf="movie.overview"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__subtitleOverview"
+          >
+            Overview:
+          </h2>
+          <p
+            *ngIf="movie.overview"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__overview"
+          >
+            {{ movie.overview }}
+          </p>
+          <ul class="videoDetailsBody__main__wrapper__cardWrapper__body__ul">
+            <li
+              *ngIf="movie.runtime"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Runtime :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ movie.runtime }} minutes
+              </p>
+            </li>
+            <li
+              *ngIf="movie.genres.length > 0"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Genre :
+              </label>
+              <p
+                *ngFor="let genre of movie.genres"
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ genre.name }}
+              </p>
+            </li>
+            <li
+              *ngIf="movie.production_countries.length > 0"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Production country :
+              </label>
+              <p
+                *ngFor="let countries of movie.production_countries"
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ countries.name }}
+              </p>
+            </li>
+            <li
+              *ngIf="movie.original_title"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Original title :</label
+              >
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ movie.original_title }}
+              </p>
+            </li>
+            <li
+              *ngIf="movie.vote_count"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Vote Count :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ movie.vote_count }}
+              </p>
+            </li>
+            <li
+              *ngIf="movie.vote_average"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Vote average :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ voteAverage }} / 10
+              </p>
+            </li>
+            <li
+              *ngIf="movie.homepage"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >Home page :</label
+              >
+              <a
+                href="{{ movie.homepage }}"
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+                >{{ movie.homepage }}</a
+              >
+            </li>
+            <li
+              *ngIf="movie.imdb_id"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+            >
+              <label
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+                >IMDB ID :
+              </label>
+              <p
+                class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >
+                {{ movie.imdb_id }}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
+          <img
+            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
+            src="{{ baseImagePath + movie.poster_path }}"
+          />
+        </figure>
+      </div>
+    </div>
+    <!-- Person template -->
+    <div *ngIf="person" class="videoDetailsBody__main__wrapper">
+      <div class="videoDetailsBody__main__wrapper__titleWrapper">
+        <h1 class="videoDetailsBody__main__wrapper__titleWrapper__title">
+          {{ person.name }}
+        </h1>
+        <p
+          *ngIf="isAdultMedia"
+          class="videoDetailsBody__main__wrapper__titleWrapper__tagline"
+        >
+          18+ years old content
+        </p>
+        <p
+          *ngIf="person.also_known_as.length > 0"
+          class="videoDetailsBody__main__wrapper__titleWrapper__tagline"
+        >
+          Also know as : {{ person.also_known_as }}
+        </p>
+      </div>
+      <div class="videoDetailsBody__main__wrapper__cardWrapper">
+        <figure class="videoDetailsBody__main__wrapper__cardWrapper__fig">
+          <img
+            class="videoDetailsBody__main__wrapper__cardWrapper__fig__poster"
+            src="{{ baseImagePath + person.profile_path }}"
+            alt="{{ person.name }}"
+          />
+        </figure>
+        <div class="videoDetailsBody__main__wrapper__cardWrapper__body">
+          <h2
+            *ngIf="person.biography"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__subtitleOverview"
+          >
+            Overview:
+          </h2>
+          <p
+            *ngIf="person.biography"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__overview"
+          >
+            {{ person.biography }}
+          </p>
+          <li
+            *ngIf="person.birthday"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Birthday :</label
+            >
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.birthday }}
+            </p>
+          </li>
+          <li
+            *ngIf="person.place_of_birth"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Place of Birth :</label
+            >
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.place_of_birth }}
+            </p>
+          </li>
+          <li
+            *ngIf="person.deathday"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Death day :</label
+            >
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.deathday }}
+            </p>
+          </li>
+          <li
+            *ngIf="person.homepage"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Home page :
+            </label>
+            <a
+              href="{{ person.homepage }}"
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+              >{{ person.homepage }}</a
+            >
+          </li>
+          <li
+            *ngIf="person.known_for_department"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Know for :</label
+            >
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.known_for_department }}
+            </p>
+          </li>
+          <li
+            *ngIf="genreName"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Genre :</label
+            >
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ genreName }}
+            </p>
+          </li>
+          <li
+            *ngIf="person.popularity"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >Popularity :
+            </label>
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.popularity }} likes
+            </p>
+          </li>
+          <li
+            *ngIf="person.imdb_id"
+            class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items"
+          >
+            <label
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label"
+              >IMDB ID :
+            </label>
+            <p
+              class="videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item"
+            >
+              {{ person.imdb_id }}
+            </p>
+          </li>
+        </div>
+      </div>
+    </div>
+  </main>
+  <app-home-footer></app-home-footer>
+</body>
+
+<!-- list template -->
+<!--<li class='videoDetailsBody__main__wrapper__cardWrapper__body__ul__items'><label class='videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__label'></label><p class='videoDetailsBody__main__wrapper__cardWrapper__body__ul__items__item'></p></li>-->

@@ -17,12 +17,12 @@ export class HomeUserModalComponent implements OnInit, OnDestroy {
   userProfiles: Profile[] = []
 
   goToProfiles() {
-    this.router.navigate(['profiles/manage'])
+    return this.router.navigate(['profiles/manage'])
   }
 
   logout() {
     this.dataSubscription = this.authService.disconnectUser().subscribe(() => {
-      this.router.navigate([''])
+      return this.router.navigate([''])
     })
   }
 

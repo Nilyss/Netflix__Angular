@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, tap, catchError, of } from 'rxjs'
 import { User } from './user'
@@ -8,10 +8,8 @@ import { FormGroup } from '@angular/forms'
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationService implements OnInit {
+export class AuthenticationService {
   createUser: {}
-
-  ngOnInit() {}
 
   // CRUD users operations
   addUser(email: string, password: string): Observable<User> {
@@ -63,23 +61,39 @@ export class AuthenticationService implements OnInit {
       )
   }
 
-  editConnectedUser(
-    userId: string,
-    profiles: {
-      _id: string
-      nickname: string
-      profilePicture: string
-      isChild: boolean
-      isAccountAdmin: boolean
-    }
+  // editConnectedUser(
+  //   userId: string,
+  //   profiles: {
+  //     _id: string
+  //     nickname: string
+  //     profilePicture: string
+  //     isChild: boolean
+  //     isAccountAdmin: boolean
+  //   }
+  // ): Observable<User> | undefined {
+  //   return this.http
+  //     .put<User>(
+  //       this.usersApiUrl + `/users/update/${userId}`,
+  //       { profiles },
+  //       this.httpOptions
+  //     )
+  //     .pipe(
+  //       tap((res) => {
+  //         this.log(res)
+  //       }),
+  //       catchError((error) => this.handleError(error, undefined))
+  //     )
+  // }
 
-  ): Observable<User> | undefined {
+  editProfile(userId: string, data: FormData | {}): Observable<any> {
+    return this.http.put(this.usersApiUrl + `/users/update/${userId}`, data, {
+      withCredentials: true,
+    })
+  }
+
+  disconnectUser(): Observable<string> {
     return this.http
-      .put<User>(
-        this.usersApiUrl + `/users/update/${userId}`,
-        { profiles },
-        this.httpOptions
-      )
+      .get<string>(this.usersApiUrl + `/users/logout`, this.httpOptions)
       .pipe(
         tap((res) => {
           this.log(res)

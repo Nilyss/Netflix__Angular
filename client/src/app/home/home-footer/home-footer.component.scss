@@ -1,0 +1,60 @@
+@import '../../../utils/styles/variables';
+@import '../../../utils/styles/keyframes';
+
+.homeFooter {
+  color: $secondaryFontColor;
+  display: flex;
+  justify-content: center;
+  background: $secondaryBackgroundColor;
+}
+
+.homeFooter__wrapper {
+  @media (max-width: $tabletBreakpoint) {
+    padding: 5em 0 0 0;
+    width: 90%;
+  }
+  width: 50%;
+  padding: 5em;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.homeFooter__wrapper__socialNetworks__fig {
+  display: flex;
+  gap: 1em;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.homeFooter__wrapper__socialNetworks__fig__logos {
+  background: white;
+  width: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.homeFooter__wrapper__listWrapper__ul {
+  display: flex;
+  gap: 5em;
+}
+
+.homeFooter__wrapper__listWrapper__ul__link {
+  margin-bottom: .5em;
+  width: 100%;
+  list-style: none;
+  cursor: pointer;
+  font-size: .8em;
+}
+
+.homeFooter__wrapper__buttonWrapper__button {
+  color: $secondaryFontColor;
+  cursor: pointer;
+  background: none;
+  border: 1px solid $secondaryFontColor;
+  padding: .5em;
+}
+
+.homeFooter__wrapper__corpWrapper {
+  font-size: .8em;
+}

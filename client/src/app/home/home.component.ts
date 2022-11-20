@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core'
       <main class="homeMain">
         <app-home-promo-card></app-home-promo-card>
       </main>
-      <footer></footer>
+      <app-home-footer></app-home-footer>
     </body>
   `,
   styles: [

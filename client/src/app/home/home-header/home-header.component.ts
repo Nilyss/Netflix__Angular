@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { AuthenticationService } from '../../authentication/authentication.service'
 import { User } from '../../authentication/user'
 import { Subscription, switchMap } from 'rxjs'
@@ -11,31 +11,32 @@ import { Profile } from '../../profiles/profile'
   styleUrls: ['./home-header.component.scss'],
 })
 export class HomeHeaderComponent implements OnInit, OnDestroy {
-  logo: string = '../../../assets/images/logos/newNetflixLogo.png'
+  // ********** Init component variables & toggle logic **********
 
+  logo: string = '../../../assets/images/logos/newNetflixLogo.png'
+  isShowProfileModal: boolean = false
   isShowSearchBar: boolean = false
+  userData: User
+  profile: Profile[]
+  dataSubscription: Subscription | undefined
+  searchVideoValue: string
   toggleDisplaySearchBar() {
     this.isShowSearchBar = !this.isShowSearchBar
   }
 
-  isShowProfileModal: boolean = false
-  toggleProfileModal() {
-    this.isShowProfileModal = !this.isShowProfileModal
+  goToHome() {
+    return this.router.navigate(['browse'])
   }
 
-  goToAuth() {
-    this.router.navigate(['fr-en'])
+  sendParamsInputValue() {
+    this.dataSubscription = this.route.params.subscribe(() => {
+      return this.router.navigate(['browse/search?searchfor'], {
+        queryParams: { searchfor: this.searchVideoValue },
+      })
+    })
   }
 
-  constructor(
-    private router: Router,
-    private authService: AuthenticationService
-  ) {}
-
-  userData: User
-  profile: Profile[]
-  dataSubscription: Subscription | undefined
-
+  // ********** Component initialisation **********
   ngOnInit(): void {
     this.dataSubscription = this.authService
       .getConnectedUserId()
@@ -50,4 +51,10 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.dataSubscription?.unsubscribe()
   }
+
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService,
+    private route: ActivatedRoute
+  ) {}
 }
