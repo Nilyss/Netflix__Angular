@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, tap, catchError, of } from 'rxjs'
 import { User } from './user'
+import { Profile } from '../profiles/profile'
+import { FormGroup } from '@angular/forms'
 
 @Injectable({
   providedIn: 'root',
@@ -100,6 +102,23 @@ export class AuthenticationService {
       )
   }
 
+  editProfile(userId: string, data: FormData | {}): Observable<any> {
+    return this.http.put(this.usersApiUrl + `/users/update/${userId}`, data, {
+      withCredentials: true,
+    })
+  }
+
+  disconnectUser(): Observable<string> {
+    return this.http
+      .get<string>(this.usersApiUrl + `/users/logout`, this.httpOptions)
+      .pipe(
+        tap((res) => {
+          this.log(res)
+        }),
+        catchError((error) => this.handleError(error, undefined))
+      )
+  }
+  
   // logs & errors
   private log(res: any) {
     console.log(res)

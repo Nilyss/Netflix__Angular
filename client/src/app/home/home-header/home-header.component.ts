@@ -20,7 +20,6 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
   profile: Profile[]
   dataSubscription: Subscription | undefined
   searchVideoValue: string
-
   toggleDisplaySearchBar() {
     this.isShowSearchBar = !this.isShowSearchBar
   }
@@ -38,7 +37,6 @@ export class HomeHeaderComponent implements OnInit, OnDestroy {
   }
 
   // ********** Component initialisation **********
-
   ngOnInit(): void {
     this.dataSubscription = this.authService
       .getConnectedUserId()
